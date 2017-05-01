@@ -1,0 +1,164 @@
+{% paginate collection.products by settings.coll_num_per_page %}
+
+<div class="container">
+    <div class="page-header cf">
+        
+        
+        {% if collection.description != '' %}
+        <div class="user-content">
+            {{ collection.description }}
+        </div>
+        {% endif %}
+      
+      	{% if settings.coll_desc_pos == 'below' %}
+            <h1 class="majortitle">{{ collection.title | escape }}</h1>
+        {% endif %}
+        
+        {% if settings.coll_desc_pos == 'above' %}
+            <h1 class="majortitle">{{ collection.title | escape }}</h1>
+        {% endif %}
+        
+        {% comment %} Find out if we have any tags to show, and the categories to use {% endcomment %}
+        {% assign show_normal_filter = false %}
+        {% assign tag_cats = '' %}
+        {% unless settings.coll_hide_tags %}
+        {% for tag in collection.all_tags %}
+            {% if tag contains 'meta-filter-' %}
+                {% assign cat_name = tag | remove: 'meta-filter-' | split: '-' | first %}
+                {% unless tag_cats contains cat_name %}
+                    {% capture tag_cats %}{{ tag_cats }},{{ cat_name }}{% endcapture %}
+                {% endunless %}
+            {% else %}
+                {% unless tag contains 'meta-' %}{% assign show_normal_filter = true %}{% endunless %}
+            {% endif %}
+        {% endfor %}
+        {% endunless %}
+      
+        {% assign tag_cats_split = tag_cats | split: ',' %}
+        
+        <div class="filters">
+            {% if show_normal_filter %}
+            <a href="#" class="tags" data-toggle-target=".tags.nav-row.cat-normal">{{ 'collections.filtering.filter' | t }} <span class="state">+</span></a>
+            {% endif %}
+            
+            {% for cat in tag_cats_split %}
+                {% unless forloop.first %}
+                    <a href="#" class="tags" data-toggle-target=".tags.nav-row.cat-{{ cat | handleize }}">{{ cat }} <span class="state">+</span></a>
+                {% endunless %}
+            {% endfor %}
+          
+            {% unless settings.coll_hide_sort %}
+            <span class="sort tags">
+              <label for="sort-by">{{ 'collections.sorting.title' | t }}</label> 
+              <select id="sort-by" data-initval="{{ collection.sort_by | default: collection.default_sort_by  }}">
+                {% unless settings.coll_hide_feat %}<option value="manual">{{ 'collections.sorting.featured' | t }}</option>{% endunless %}
+                <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+                <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+                <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+                <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+                <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+                <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
+                <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+              </select>
+            </span>
+            {% endunless %}
+            
+            {% if settings.coll_gridstream_mode contains 'both' %}
+          	  <span class="view-as">
+                <span class="view-as-label">{{ 'collections.general.view' | t }}</span>
+                <a id="view-as-tiles" {% if settings.coll_gridstream_mode contains 'grid' %}class="active"{% endif %} href="#">{{ 'collections.general.grid' | t }} <div class="fluff1"></div><div class="fluff2"></div><div class="fluff3"></div><div class="fluff4"></div></a>
+                <a id="view-as-stream" {% if settings.coll_gridstream_mode contains 'stream' %}class="active"{% endif %} href="#">{{ 'collections.general.stream' | t }} <div class="fluff"></div></a>
+	          </span>
+            {% endif %}
+        </div><!-- /.filters -->
+        
+        {% if settings.coll_hide_soc == 'show-vis' %}
+        <div class="social-area">
+          {% include 'social-sharing' %}
+        </div>
+        {% elsif settings.coll_hide_soc == 'show-exp' %}
+      	<div class="social-area">
+          <a href="#" class="tags" data-toggle-target=".tags.nav-row.social-row">{{ 'collections.general.share' | t }} <span class="state">+</span></a>
+        </div>
+        {% endif %}
+    </div><!-- /.page-header -->
+</div><!-- /.container -->
+
+<div class="multi-tag-row">
+  {% if settings.coll_hide_soc == 'show-exp' %}
+  <div class="tags nav-row social-row height-hidden hidden">
+    <div class="container">{% include 'social-sharing' %}</div>
+  </div>
+  {% endif %}
+  
+    {% assign sorted_all_tags = collection.all_tags | sort %}
+    {% if show_normal_filter %}
+        {% assign current_tags_size = current_tags | size %}
+        {% capture norm_tag_html %}
+        <!-- Tag filter -->
+        <div class="tags nav-row cat-normal hidden">
+            <ul>
+                {% for tag in sorted_all_tags %}
+                {% unless tag contains 'meta-' %}
+                    {% if current_tags contains tag %}
+                        <li class="active" data-tag="{{tag | handleize}}">{{ tag | link_to_remove_tag: tag }}</li>
+                    {% else %}
+                        <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
+                    {% endif %}
+                {% endunless %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endcapture %}
+        {% if norm_tag_html contains 'class="active"' %}
+            {% assign norm_tag_html = norm_tag_html | remove: "hidden" %}
+        {% endif %}
+        {{ norm_tag_html }}
+    {% endif %}
+    
+    {% for cat in tag_cats_split %}
+        {% unless forloop.first %}
+        {% capture cat_tags_html %}
+        {% assign cat_tag_prefix = 'meta-filter-' | append: cat | append: '-' %}
+            <!-- Category tag filter -->
+            <div class="tags nav-row cat-{{ cat | handleize }} hidden">
+                <ul>
+                    {% for tag in sorted_all_tags %}
+                    {% if tag contains cat_tag_prefix %}
+                  		{% assign tag_title = tag | remove: cat_tag_prefix %}
+                        {% if tag_title contains '-' %}
+                        	{% assign tag_title = tag_title | replace_first: '-', ',' | split: ',' | last %}                  
+                        {% endif %}
+                        {% if current_tags contains tag %}
+                            <li class="active" data-tag="{{tag | handleize}}">{{ tag_title | link_to_remove_tag: tag }}</li>
+                        {% else %}
+                            <li data-tag="{{tag | handleize}}">{{ tag_title | link_to_add_tag: tag }}</li>
+                        {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endcapture %}
+        {% if cat_tags_html contains 'class="active"' %}
+            {% assign cat_tags_html = cat_tags_html | remove: "hidden" %}
+        {% endif %}
+        {{ cat_tags_html }}
+        {% endunless %}
+    {% endfor %}
+</div><!-- /.multi-tag-row -->
+
+{% if collection.products.size == 0 %}
+    <div class="container"><h5 class="align-centre">{{ 'collections.general.no_matches' | t }}</h5></div>
+{% else %}
+    {% if settings.coll_in_col %}<div class="container">{% endif %}
+
+    <div class="collection-listing{% if settings.coll_gridstream_mode contains 'stream' %}-stream{% endif %} cf">
+        {% include 'product-list' with collection %}
+    </div>
+    
+    {% if settings.coll_in_col %}</div>{% endif %}
+{% endif %}
+
+<div class="container pagination-row">{% include 'pagination-control' %}</div>
+
+{% endpaginate %}

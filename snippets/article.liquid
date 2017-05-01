@@ -1,0 +1,45 @@
+{% assign style_class = '' %}
+{% for tag in article.tags %}
+{% if tag contains 'meta-style-' %}
+{% capture style_class %}{{ tag | remove: 'meta-' }}{% endcapture %}
+{% endif %}
+{% endfor %}
+<div class="article {{ style_class }} {% if settings.lightbox_imgs %}lightboximages{% endif %}">
+  <div class="container">
+    {% if template contains 'article' %}
+    <h1 class="h2-style">{{ article.title | link_to: article.url }}</h1>
+    {% else %}
+    <h2>{{ article.title | link_to: article.url }}</h2>
+    {% endif %}
+    {% if template contains 'blog' %}
+
+    <div class="user-content">
+      {{ article.excerpt_or_content }}
+    </div>
+
+    <div class="continue-reading">{{ 'blogs.article.read_more_html' | t | link_to: article.url }}</div>
+
+    {% else %}
+    <div class="user-content">
+      {{ article.content }}
+    </div>
+    {% endif %}
+    
+    <div class="meta">
+      <span class="iconmeta time">
+        {{ article.published_at | date: format: 'month_date_year' }}
+        <span class="author">{{ 'blogs.article.author' | t: author: article.author }}</span>
+      </span>
+      {% capture tag_markup %}
+      <div class="iconmeta tags"><span class="label">{{ 'blogs.article.tags' | t }}:</span>
+        {% for tag in article.tags %}
+        {% unless tag contains 'meta-' %}
+        {{ tag | link_to_tag: tag }}
+        {% endunless %}
+        {% endfor %}
+      </div>
+      {% endcapture %}
+      {% if tag_markup contains '</a>' %}{{ tag_markup }}{% endif %}
+  </div>
+</div><!-- /.container -->
+</div><!-- /.article -->

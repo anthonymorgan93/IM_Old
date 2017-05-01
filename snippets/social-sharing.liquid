@@ -1,0 +1,30 @@
+{% if settings.social_show_tw or settings.social_show_go or settings.social_show_pi or settings.social_show_fa or settings.social_show_fb %}
+<div class="social">
+    <span class="socitem label">{{ 'general.social.label' | t }}:</span>
+    {% if settings.social_show_tw %}
+    <div class="socitem twittercont">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+    </div>
+    {% endif %}
+    {% if settings.social_show_go %}
+    <div class="socitem plusonecont">
+        <g:plusone size="medium" annotation="none"></g:plusone>
+    </div>
+    {% endif %}
+    {% if settings.social_show_pi and template == 'product' %}
+    <div class="socitem pinterestcont">
+        <a href="http://pinterest.com/pin/create/button/?url={{ shop.url }}{{ product.url }}&media=http:{{ product.featured_image | product_img_url: 'master' }}&description={{ product.title | escape }}" class="pin-it-button" target="_blank" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+    </div>
+    {% endif %}
+    {% if settings.social_show_fa and template == 'product' %}
+    <div class="socitem fancycont">
+        <a id="FancyButton" data-count="false" href="http://www.thefancy.com/fancyit?ItemURL={{ shop.url }}{{ product.url }}&Title={{ product.title | escape }}&Category={{ product.type | escape }}&ImageURL=http:{{ product.featured_image | product_img_url: 'master' }}">Fancy</a>
+    </div>
+    {% endif %}
+    {% if settings.social_show_fb %}
+        <div class="socitem facebookcont">
+            <div class="fb-like" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div>
+        </div>
+    {% endif %}
+</div>
+{% endif %}

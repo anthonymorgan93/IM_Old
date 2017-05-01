@@ -1,0 +1,79 @@
+<div id="pagefooter">
+    {% unless settings.footer_ad_show == '' %}
+    {% if settings.footer_ad_show == 'all' or template == 'index' %}
+    <div class="image-links cf">
+        {% if settings.home_col_full_dis %}<div class="container">{% endif %}
+        
+        {% for i in (1..3) %}
+            {% unless settings[set_index] == empty %}
+            {% assign ad_url_index = 'ad_' | append: i | append: '_src' %}
+            {% assign ad_title_index = 'ad_' | append: i | append: '_title' %}
+            
+            <div class="image-link block-{{ forloop.index }}">
+                {% if settings[ad_url_index] == empty %}
+                    <img src="{{ 'ad_' | append: i | append: '_img.jpg' | asset_url }}" alt="{{ settings[ad_title_index] }}" />
+                {% else %}
+                    <a href="{{ settings[ad_url_index] }}" title="{{ settings[ad_title_index] }}"><img src="{{ 'ad_' | append: i | append: '_img.jpg' | asset_url }}" alt="{{ settings[ad_title_index] }}" /></a>
+                {% endif %}
+            </div>
+            {% endunless %}
+        {% endfor %}
+        
+        {% if settings.home_col_full_dis %}</div>{% endif %}
+    </div><!-- /.image-links -->
+    {% endif %}
+    {% endunless %}
+    
+    {% if linklists.footer.links.size > 0 %}
+    <div class="nav-row">
+        {% include 'main-navigation' with 'footer' %}
+    </div><!-- /.nav-row -->
+    {% endif %}
+    
+    <div class="lower cf">
+        <div class="copyright">
+            {% comment %}{% if settings.logo_small_show_foot %}
+          <span style=""><img src="{{ 'logo_small.png' | asset_url }}" alt="{{ shop.name }}" /></span>
+            {% endif %}{% endcomment %}
+            <span style="margin-left: 40px;">
+       <img src="https://imperialmotion.com/wp-content/uploads/2014/12/imperial-motion-never-est-footer.png" alt="Never Est."></span>
+            {% if settings.show_cc_link == true %}{{ 'layout.footer.theme_by_html' | t }}{% endif %}
+             
+            
+        <!-- /.copyright -->
+        
+        <div class="interact">
+          <center><h5 style="margin-bottom:8px;"><strong>Questions?</strong> 1-844-786-8619</h5></center>
+          <center><p>or <a href="mailto:customersupport@imperialmotion.com">customersupport@imperialmotion.com</a></p></center>
+            {% if settings.footer_signup_show %}
+                {% include 'signup-form' %}
+            {% endif %}
+        </div><!-- /.interact -->
+        {% if settings.soc_icons_loc == 'foot' %}
+                {% include 'social-icons' %}
+          {% elsif settings.soc_icons_loc == 'both' %}
+                {% include 'social-icons' %}
+            {% endif %}
+        <div class="payment-methods">
+            {% if settings.pay_dankort or settings.pay_google_wallet or settings.pay_discover or settings.pay_paypal or settings.pay_amex or settings.pay_maestro or settings.pay_cirrus or settings.pay_mastercard or settings.pay_visa %}
+            <ul>
+              {% if settings.pay_paypal %}<li class="pay-paypal">PayPal</li>{% endif %}
+              {% if settings.pay_visa %}<li class="pay-visa">Visa</li>{% endif %}
+              {% if settings.pay_mastercard %}<li class="pay-mastercard">Mastercard</li>{% endif %}
+              {% if settings.pay_amex %}<li class="pay-amex">Amex</li>{% endif %}
+              {% if settings.pay_discover %}<li class="pay-discover">Discover</li>{% endif %}
+              {% if settings.pay_cirrus %}<li class="pay-cirrus">Cirrus</li>{% endif %}
+              {% if settings.pay_maestro %}<li class="pay-maestro">Maestro</li>{% endif %}
+              {% if settings.pay_google_wallet %}<li class="pay-google-wallet">Google Wallet</li>{% endif %}
+              {% if settings.pay_dankort %}<li class="pay-dankort">Dankort</li>{% endif %}
+              {% if settings.pay_jcb %}<li class="pay-jcb">JCB</li>{% endif %}
+              {% if settings.pay_diners %}<li class="pay-diners">Diners Club</li>{% endif %}
+              {% if settings.pay_bitcoin %}<li class="pay-bitcoin">Bitcoin</li>{% endif %}
+              <li class="amazon-payments"><img src="{{ 'amazon.png' | asset_url }}"></li>
+            </ul>
+            {% endif %}            
+        </div>
+          <div><span class="copy" style="font-size: 10px; margin-left: 20px;">&copy; COPYRIGHT {{ "now" | date: "%Y" }} IMPERIAL MOTION. REPRESENTING THE UNDERACHIEVER.</span></div>
+    </div>
+    
+</div><!-- /#pagefooter -->

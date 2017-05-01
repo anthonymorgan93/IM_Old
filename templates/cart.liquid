@@ -1,0 +1,116 @@
+<div class="page-header">
+    <h1 class="majortitle">{{ 'cart.general.title' | t }}</h1>
+</div>
+  <p style="align: right;"><b>Questions?</b> Call us: <a href="tel:18447868619">1-844-786-8619 </a></p>
+{% if cart.items == empty %}
+    <div class="row-spacing align-centre">
+      <p>{{ 'cart.general.empty' | t }}</p>
+    </div>
+{% else %}
+    <form action="/cart" method="post" id="cartform">
+        <ul class="item-list divider">
+        {% for item in cart.items %}
+            <li class="item cf {{ item.product.handle }}">
+              <a class="remove toggler" onclick="return confirm('{{ 'cart.general.confirm_remove' | t }}')" href="/cart/change?line={{ forloop.index }}&quantity=0">&#215;</a>
+              
+              <div class="image">
+                <a href="{{ item.url }}"><img src="{{ item | img_url: 'small' }}"  alt="{{ item.title | escape }}" /></a>
+              </div>
+
+              <div class="desc">
+                <a class="name" href="{{ item.url }}">{{ item.title }}</a>
+                {% for p in item.properties %}
+                {% unless p.last == blank %}
+                <span class="custom" style="text-transform:capitalize">{{ p.first }}:
+                  {% if p.last contains '/uploads/' %}
+                  <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                  {% else %}
+                  {{ p.last }}<br />
+                  {% endif %}
+                </span>
+                {% endunless %}
+                {% endfor %}
+              </div>
+
+              <div class="quantotal">
+                <div class="quantity">
+                  <label for="updates_{{ item.id }}">{{ 'cart.general.quantity' | t }}</label> 
+                  <input class="select-on-focus" type="text" size="2" id="updates_{{ item.id }}" name="updates[]" value="{{ item.quantity }}" />
+                </div>
+                <div class="line-total">{{ item.line_price | money }}</div>
+              </div>
+            </li><!-- /.item -->
+        {% endfor %}
+        </ul>
+
+        <div class="divider cf">
+            <div class="checkout-note layout-column-half-left">
+                <label for="note">{{ 'cart.label.note' | t }}</label>
+                <div class="textareawrapper"><textarea id="note" name="note">{{ cart.note }}</textarea></div>
+              <div style="margin-top: 10px;"><a href="//www.shopify.com/pci-compliant" title="This online store is secured by Shopify" target="_blank"><img src="//cdn.shopify.com/s/images/badges/shopify-secure-badge-light-shadow.png" alt="Shopify secure badge" /></a></div>
+ <div style="font-size: 10px; line-height: 10px">
+<br>
+<p style="text-align: center;"><span style="color: #000000;">SHIPPING:</span></p>
+<p style="text-align: center;">ORDERS RECEIVED BY 12 PST WILL SHIP SAME DAY</p>
+<p style="text-align: center;">ALL OTHER ORDERS WILL SHIP BY THE FOLLOWING DAY</p>
+<p style="text-align: center;">ORDERS ARE NOT PROCESSED ON THE WEEKENDS.  IT WILL BE PROCESSED NO LATER THAN WEDNESDAY</p>
+<p style="text-align: center;">FRIDAY AFTER 12:00 PM IS CONSIDERED WEEKEND ORDERS</p>
+<p style="text-align: center;">TRACKING NUMBERS WILL BE EMAILED TO YOU AT THE TIME OF SHIPMENT</p>
+<p><span> </span></p>
+<p style="text-align: center;"><span style="color: #000000;">REFUND POLICY: </span></p>
+<div style="text-align: center;"><span></span></div>
+<div style="text-align: center;"><span></span></div>
+<div style="text-align: center;"><meta charset="utf-8" />
+<p style="text-align: center;">IF YOU ARE NOT SATISFIED WITH YOUR ONLINE PURCHASE</p>
+<p style="text-align: center;">YOU MAY RETURN ITEMS FREE OF CHARGE WITHIN 30 DAYS OF ORIGINAL PURCHASE</p>
+<p style="text-align: center;">TO QUALIFY FOR A MERCHANDISE REFUND, ITEMS MUST BE RETURNED IN ORIGINAL</p>
+<p style="text-align: center;">UNUSED CONDITION WITH ORIGINAL TAGGING</p>
+<p style="text-align: center;">A RETURN LABEL WILL BE PROVIDED IN YOUR ORDER</p>
+<p style="text-align: center;">AFTER 30 DAYS IF YOUR PRODUCT IS DEFECTIVE FOR ANY REASON </p>
+<p style="text-align: center;">WE WILL EXCHANGE FREE UP TO 60 DAYS FROM TIME OF PURCHASE</p>
+</div>
+              </div>
+            </div><!-- /.checkout-note -->
+            <div class="totals-area layout-column-half-right">
+                <div class="checkout-col">
+                    <h2 class="subtotal h1-style">{{ cart.total_price | money }}</h2>
+                    <p style="align: right;"><b>Questions?</b> Call us: <a href="tel:18447868619">1-844-786-8619 </a></p>
+                    {% if settings.cart_terms_show %}
+                        <div class="termsagreement">
+                          <input type="checkbox" id="terms" />
+                          {% assign terms_url = pages[settings.cart_terms_page].url %}
+                          <label for="terms">{{ 'cart.terms.agreement_html' | t: terms_url: terms_url }}</label>
+                          <script>
+                            $(document).on('click', '#cartform [name="checkout"], #additional-checkout-buttons input, a[href="/checkout"]', function() {
+                              var $form = $('#cartform');
+                              if($form.has('#terms') && $form.find('#terms:checked').length == 0) {
+                                alert({{ 'cart.terms.confirmation' | t | json }});
+                                return false;
+                              }
+                            });
+                          </script>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="checkout-buttons">
+                        <input type="submit" class="notabutton" name="update" value="{{ 'cart.general.update' | t }}" /> {{ 'cart.general.or' | t }} 
+                        <div>
+                          <input type="submit" class="altaltcolour" id="update-cart" name="checkout" value="{{ 'cart.general.checkout' | t }}" />
+                      	</div>
+                          {% if additional_checkout_buttons %}
+                        <div id="additional-checkout-buttons">
+                            <span>{{ 'cart.label.other_payment_types' | t }}</span>
+                            {{ content_for_additional_checkout_buttons }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div>{{ 'cart.general.message' | t }}</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        {% include 'shipping-calculator' %}
+    </form>
+{% endif %}

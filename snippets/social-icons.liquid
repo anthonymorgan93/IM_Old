@@ -1,0 +1,13 @@
+<div class="social-links">
+    {% assign social_human_titles = 'Imperial Motion Facebook,Imperial Motion Twitter,Imperial Motion RSS,Imperial Motion Pinterest,Imperial Motion Google+,Imperial Motion Instagram,Imperial Motion Vimeo,Imperial Motion YouTube,Imperial Motion Flickr,Imperial Motion Tumblr' | split: ',' %}
+    {% assign social_keys = 'facebook,twitter,rss,pinterest,google,instagram,vimeo,youtube,flickr,tumblr' | split: ',' %}
+    <ul>
+    {% for social_key in social_keys %}
+    {% assign en_key = 'soc_' | append: social_key | append: '_en' %}
+    {% if settings[en_key] %}
+        {% assign en_key = 'soc_' | append: social_key | append: '_url' %}
+        <li class="{{ social_key }}"><a href="{{ settings[en_key] }}" target="_blank" title="{{ social_human_titles[forloop.index0] }}">{{ social_human_titles[forloop.index0] }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>

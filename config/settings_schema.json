@@ -1,0 +1,2489 @@
+[
+  {
+    "name": "SYMMETRY Theme Settings",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Thank you for choosing the SYMMETRY theme by CleanThemes. ← Choose a preset style on the left to get started. SUPPORT SITE: [CLEANTHEMES.CO.UK](http:\/\/www.cleanthemes.co.uk\/symmetry\/) Need help? Contact us: [shopify@cleanthemes.co.uk](mailto:shopify@cleanthemes.co.uk) [Follow us on Twitter! →](https:\/\/twitter.com\/clean_themes)"
+      }
+    ]
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Please note that all advert, product and slide images are copyright protected and included as example \/ setup help only; they are not for use in your live store."
+      },
+      {
+        "type": "header",
+        "content": "Your Logo"
+      },
+      {
+        "type": "paragraph",
+        "content": "Suggested logo sizes (dependent on position chosen): Same row: 260px w x 100px h Above: 260 - 400px w x 120px h Below: 260 - 400px w x 120px h"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_logo_img",
+        "label": "Use a logo image?"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom logo image",
+        "max-width": 1000,
+        "max-height": 600
+      },
+      {
+        "type": "select",
+        "id": "logo_pos",
+        "label": "Logo position",
+        "options": [
+          {
+            "value": "",
+            "label": "Same row as search\/cart"
+          },
+          {
+            "value": "above",
+            "label": "Above search\/cart"
+          },
+          {
+            "value": "below",
+            "label": "Below search\/cart"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "logo_top_pad",
+        "label": "Space above logo"
+      },
+      {
+        "type": "text",
+        "id": "logo_bot_pad",
+        "label": "Space below logo"
+      },
+      {
+        "type": "header",
+        "content": "Main Site Background"
+      },
+      {
+        "type": "color",
+        "id": "bg_col",
+        "label": "Background color"
+      },
+      {
+        "type": "select",
+        "id": "bg_img_name",
+        "label": "Background image",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "bg_stock_1.jpg",
+            "label": "Light"
+          },
+          {
+            "value": "bg_stock_2.jpg",
+            "label": "Dark"
+          },
+          {
+            "value": "bg_custom.jpg",
+            "label": "Custom"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "bg_custom.jpg",
+        "label": "Custom background image"
+      },
+      {
+        "type": "select",
+        "id": "bg_method",
+        "label": "Background image type",
+        "options": [
+          {
+            "value": "repeatxy",
+            "label": "Tiled vertically + horizontally"
+          },
+          {
+            "value": "centertop-repeatx",
+            "label": "Aligned to top, tiled horizontally"
+          },
+          {
+            "value": "centertop-norepeat",
+            "label": "Aligned to top, centred, no tiling"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Miscellaneous"
+      },
+      {
+        "type": "image",
+        "id": "favicon.ico",
+        "label": "Upload a favicon",
+        "info": "convert your image to a 16x16 ico file before uploading"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_gravatars",
+        "label": "Enable [Gravatars](http:\/\/gravatar.com) in blog comments"
+      },
+      {
+        "type": "checkbox",
+        "id": "lightbox_imgs",
+        "label": "Use lightbox for any images in text areas (blogs\/pages\/product descriptions)"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "To use custom Google Web Fonts, go to [google.com\/webfonts](http:\/\/www.google.com\/webfonts) and pick your font. On the instructions section it will show you the address of the font, e.g 'http:\/\/fonts.googleapis.com\/css?family=Averia+Libre:700' - just enter the font part (eg: 'Averia+Libre:700') here, select 'Custom' and the template will do the rest."
+      },
+      {
+        "type": "select",
+        "id": "font_fam_base",
+        "label": "Base",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "value": "GWF|Lato:400,700",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Lora:400,700",
+            "label": "Lora",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Open+Sans:400,700",
+            "label": "Open Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "'Helvetica Neue Bold'",
+            "label": "Helvetica Neue Bold",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Helvetica Neue Condensed'",
+            "label": "Helvetica Neue Condensed",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Oswald', sans-serif",
+            "label": "Oswald",
+            "group": "Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "font_fam_base_cust",
+        "label": "Custom:"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_headings",
+        "label": "Headings",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "value": "GWF|Amatic+SC:400,700",
+            "label": "Amatic SC",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Lato:400,700",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Lora:400,700",
+            "label": "Lora",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Quantico",
+            "label": "Quantico",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|CUSTOM",
+            "label": "-- Custom --",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "'Helvetica Neue Bold'",
+            "label": "Helvetica Neue Bold",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Helvetica Neue Condensed'",
+            "label": "Helvetica Neue Condensed",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Oswald', sans-serif",
+            "label": "Oswald",
+            "group": "Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "font_fam_headings_cust",
+        "label": "Custom:"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_shoptitle",
+        "label": "Store name (if used instead of logo image)",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "value": "GWF|Lato",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Lora",
+            "label": "Lora",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|CUSTOM",
+            "label": "-- Custom --",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "'Helvetica Neue Bold'",
+            "label": "Helvetica Neue Bold",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Helvetica Neue Condensed'",
+            "label": "Helvetica Neue Condensed",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Oswald', sans-serif",
+            "label": "Oswald",
+            "group": "Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "font_fam_shoptitle_cust",
+        "label": "Custom:"
+      },
+      {
+        "type": "text",
+        "id": "font_size_shoptitle",
+        "label": "Size"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_nav",
+        "label": "Menu",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "value": "GWF|Lato",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Lora",
+            "label": "Lora",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Quantico",
+            "label": "Quantico",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|CUSTOM",
+            "label": "-- Custom --",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "'Helvetica Neue Bold'",
+            "label": "Helvetica Neue Bold",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Helvetica Neue Condensed'",
+            "label": "Helvetica Neue Condensed",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Oswald', sans-serif",
+            "label": "Oswald",
+            "group": "Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "font_fam_nav_cust",
+        "label": "Custom:"
+      },
+      {
+        "type": "select",
+        "id": "font_fam_special",
+        "label": "Buttons, labels, tags, header",
+        "options": [
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial",
+            "group": "Web Safe"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Web Safe"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Web Safe"
+          },
+          {
+            "value": "GWF|Lato:400,700",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|Lora:400,700",
+            "label": "Lora",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "GWF|CUSTOM",
+            "label": "-- Custom --",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "'Helvetica Neue Bold'",
+            "label": "Helvetica Neue Bold",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Helvetica Neue Condensed'",
+            "label": "Helvetica Neue Condensed",
+            "group": "MyFonts"
+          },
+          {
+            "value": "'Oswald', sans-serif",
+            "label": "Oswald",
+            "group": "Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "font_fam_special_cust",
+        "label": "Custom:"
+      },
+      {
+        "type": "header",
+        "content": "Global text sizes"
+      },
+      {
+        "type": "text",
+        "id": "font_size_base",
+        "label": "Smallest text size (paragraphs)"
+      },
+      {
+        "type": "text",
+        "id": "font_size_headings",
+        "label": "Largest text size (main titles)"
+      },
+      {
+        "type": "checkbox",
+        "id": "font_headnav_uc",
+        "label": "Force uppercase text?"
+      },
+      {
+        "type": "header",
+        "content": "Specific text override sizes"
+      },
+      {
+        "type": "text",
+        "id": "font_size_special_head",
+        "label": "Header + footer text"
+      },
+      {
+        "type": "text",
+        "id": "font_size_nav",
+        "label": "Main menu text"
+      },
+      {
+        "type": "text",
+        "id": "font_size_msgs",
+        "label": "Under-menu message text"
+      },
+      {
+        "type": "text",
+        "id": "font_size_special_but",
+        "label": "Button text"
+      },
+      {
+        "type": "text",
+        "id": "font_size_special_tags",
+        "label": "Tags\/View As\/misc text"
+      },
+      {
+        "type": "text",
+        "id": "home_slider_text_size",
+        "label": "Home slider overlay text"
+      },
+      {
+        "type": "text",
+        "id": "home_ad_text_size",
+        "label": "Home advert overlay text"
+      },
+      {
+        "type": "header",
+        "content": "Text colors"
+      },
+      {
+        "type": "color",
+        "id": "font_col_base",
+        "label": "Base"
+      },
+      {
+        "type": "color",
+        "id": "font_col_link",
+        "label": "Links"
+      },
+      {
+        "type": "color",
+        "id": "font_col_link_hover",
+        "label": "Links - hover"
+      },
+      {
+        "type": "color",
+        "id": "font_col_heads",
+        "label": "Headings - main"
+      },
+      {
+        "type": "color",
+        "id": "font_col_shoptitle",
+        "label": "Shop name \/ logo"
+      },
+      {
+        "type": "color",
+        "id": "font_col_input",
+        "label": "Form inputs"
+      }
+    ]
+  },
+  {
+    "name": "Global Colors + Styles",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Button colors"
+      },
+      {
+        "type": "color",
+        "id": "btn_col",
+        "label": "Button"
+      },
+      {
+        "type": "color",
+        "id": "btn_col_alt",
+        "label": "Button hover"
+      },
+      {
+        "type": "color",
+        "id": "btn_col_txt",
+        "label": "Button text"
+      },
+      {
+        "type": "header",
+        "content": "Icon colors"
+      },
+      {
+        "type": "select",
+        "id": "rss_col",
+        "label": "RSS icon (blog\/article page)",
+        "options": [
+          {
+            "value": "rss_black.png",
+            "label": "Black"
+          },
+          {
+            "value": "rss_white.png",
+            "label": "White"
+          },
+          {
+            "value": "rss_colour.png",
+            "label": "Color"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "meta_col",
+        "label": "Meta icons (blog page)",
+        "options": [
+          {
+            "value": "meta_icons_grey.png",
+            "label": "Grey"
+          },
+          {
+            "value": "meta_icons_white.png",
+            "label": "White"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Lines \/ misc colors"
+      },
+      {
+        "type": "color",
+        "id": "col_dividers",
+        "label": "Dividing lines \/ horizontal rules"
+      },
+      {
+        "type": "color",
+        "id": "font_col_div",
+        "label": "Table lines"
+      },
+      {
+        "type": "color",
+        "id": "font_col_input_bg",
+        "label": "Form input background"
+      },
+      {
+        "type": "color",
+        "id": "font_col_input_bord",
+        "label": "Form input border"
+      }
+    ]
+  },
+  {
+    "name": "Header Panel",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header colors"
+      },
+      {
+        "type": "color",
+        "id": "head_bg_col",
+        "label": "Background"
+      },
+      {
+        "type": "color",
+        "id": "head_txt_col",
+        "label": "Text"
+      },
+      {
+        "type": "color",
+        "id": "head_nav_div_col",
+        "label": "Menu - dividing lines"
+      },
+      {
+        "type": "color",
+        "id": "font_col_nav",
+        "label": "Menu - text"
+      },
+      {
+        "type": "color",
+        "id": "font_col_nav_hov",
+        "label": "Menu - text hover"
+      },
+      {
+        "type": "color",
+        "id": "font_col_nav_acct",
+        "label": "Menu - account links"
+      },
+      {
+        "type": "color",
+        "id": "panel_nav_bg",
+        "label": "Menu background (1st level)"
+      },
+      {
+        "type": "color",
+        "id": "panel_nav_bg_2",
+        "label": "Menu background (2nd level)"
+      },
+      {
+        "type": "color",
+        "id": "panel_nav_bg_3",
+        "label": "Menu background (3rd level)"
+      },
+      {
+        "type": "color",
+        "id": "not_shade_bg",
+        "label": "Added-to-cart notification background"
+      },
+      {
+        "type": "header",
+        "content": "Misc"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_btn_style_cart_link",
+        "label": "Show cart link as button"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_signup_show",
+        "label": "Show newsletter signup in header"
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_show_reg",
+        "label": "Show 'Register' link in main menu (requires customer accounts to be enabled in Settings > Checkout)"
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_autoexpand",
+        "label": "Automatically expand navigation to current page"
+      }
+    ]
+  },
+  {
+    "name": "Store messages",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "These are displayed under the main menu - great for promotions + notices"
+      },
+      {
+        "type": "select",
+        "id": "head_not_count",
+        "label": "Number to show",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "12",
+            "label": "2"
+          },
+          {
+            "value": "123",
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "head_not_home_only",
+        "label": "Homepage only"
+      },
+      {
+        "type": "checkbox",
+        "id": "head_not_mob_hide",
+        "label": "Hide on mobile"
+      },
+      {
+        "type": "header",
+        "content": "Colours"
+      },
+      {
+        "type": "color",
+        "id": "head_not_col_bg",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "head_not_col_bg_trans",
+        "label": "Transparent:"
+      },
+      {
+        "type": "color",
+        "id": "head_not_col_txt1",
+        "label": "Text line 1",
+        "default": "#3d4c4f"
+      },
+      {
+        "type": "color",
+        "id": "head_not_col_txt2",
+        "label": "Text line 2",
+        "default": "#8a8f93"
+      },
+      {
+        "type": "header",
+        "content": "Message 1"
+      },
+      {
+        "type": "text",
+        "id": "head_not_1_1",
+        "label": "Line 1"
+      },
+      {
+        "type": "text",
+        "id": "head_not_1_2",
+        "label": "Line 2"
+      },
+      {
+        "type": "text",
+        "id": "head_not_1_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "header",
+        "content": "Message 2"
+      },
+      {
+        "type": "text",
+        "id": "head_not_2_1",
+        "label": "Line 1"
+      },
+      {
+        "type": "text",
+        "id": "head_not_2_2",
+        "label": "Line 2"
+      },
+      {
+        "type": "text",
+        "id": "head_not_2_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "header",
+        "content": "Message 3"
+      },
+      {
+        "type": "text",
+        "id": "head_not_3_1",
+        "label": "Line 1"
+      },
+      {
+        "type": "text",
+        "id": "head_not_3_2",
+        "label": "Line 2"
+      },
+      {
+        "type": "text",
+        "id": "head_not_3_url",
+        "label": "Link URL"
+      }
+    ]
+  },
+  {
+    "name": "Homepage Slideshow",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Setup"
+      },
+      {
+        "type": "color",
+        "id": "slide_bg_col",
+        "label": "Background color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_bg_trans",
+        "label": "or Transparent:"
+      },
+      {
+        "type": "color",
+        "id": "slide_txt_col",
+        "label": "Overlay text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_txt_bg_show",
+        "label": "Show overlay background"
+      },
+      {
+        "type": "color",
+        "id": "slide_txt_bg_col",
+        "label": "Overlay background color"
+      },
+      {
+        "type": "text",
+        "id": "slide_txt_bg_op",
+        "label": "Overlay background transparency (decimal between 0 - 1, 0.5 being 50%)"
+      },
+      {
+        "type": "header",
+        "content": "Slides"
+      },
+      {
+        "type": "paragraph",
+        "content": "Use <br \/> for a new line in any text Ideal size for full width slides: 1600 x 500, 1200 wide for fixed width sites"
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_1_show",
+        "label": "Active"
+      },
+      {
+        "type": "image",
+        "id": "slide_1.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_url",
+        "label": "Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_1_txt_show",
+        "label": "Show overlay text"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_txt",
+        "label": "Overlay text"
+      },
+      {
+        "type": "select",
+        "id": "slide_1_txt_pos",
+        "label": "Overlay position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "centre",
+            "label": "Centre"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_2_show",
+        "label": "Active"
+      },
+      {
+        "type": "image",
+        "id": "slide_2.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_url",
+        "label": "Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_2_txt_show",
+        "label": "Show overlay text"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_txt",
+        "label": "Overlay text"
+      },
+      {
+        "type": "select",
+        "id": "slide_2_txt_pos",
+        "label": "Overlay position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "centre",
+            "label": "Centre"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_3_show",
+        "label": "Active"
+      },
+      {
+        "type": "image",
+        "id": "slide_3.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_url",
+        "label": "Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_3_txt_show",
+        "label": "Show overlay text"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_txt",
+        "label": "Overlay text"
+      },
+      {
+        "type": "select",
+        "id": "slide_3_txt_pos",
+        "label": "Overlay position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "centre",
+            "label": "Centre"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_4_show",
+        "label": "Active"
+      },
+      {
+        "type": "image",
+        "id": "slide_4.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_url",
+        "label": "Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_4_txt_show",
+        "label": "Show overlay text"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_txt",
+        "label": "Overlay text"
+      },
+      {
+        "type": "select",
+        "id": "slide_4_txt_pos",
+        "label": "Overlay position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "centre",
+            "label": "Centre"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Slide 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_5_show",
+        "label": "Active"
+      },
+      {
+        "type": "image",
+        "id": "slide_5.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "slide_5_url",
+        "label": "Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_5_txt_show",
+        "label": "Show overlay text"
+      },
+      {
+        "type": "text",
+        "id": "slide_5_txt",
+        "label": "Overlay text"
+      },
+      {
+        "type": "select",
+        "id": "slide_5_txt_pos",
+        "label": "Overlay position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "centre",
+            "label": "Centre"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Homepage Setup",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Row ordering"
+      },
+      {
+        "type": "paragraph",
+        "content": "Enter the letter of each row in the order you want them to show, separated with a hyphen. E.g. D-C-A-B-E Leave blank for default order A: Slider B: Text row C: Ad image D: Blog E: Product row 1 F: Product row 2 G: Product row 3 H: Collection list I: Custom HTML"
+      },
+      {
+        "type": "text",
+        "id": "home_order",
+        "label": "Order of rows",
+        "default": "A-B-C-D-E-F-G-H-I"
+      },
+      {
+        "type": "header",
+        "content": "B: Text row"
+      },
+      {
+        "type": "text",
+        "id": "home_welcome_title",
+        "label": "Title"
+      },
+      {
+        "type": "page",
+        "id": "home_welcome_page",
+        "label": "Page to pull text from"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_welcome_image_show",
+        "label": "[Show companion content](http:\/\/cleanthemes.co.uk\/symmetry\/text-row-homepage)"
+      },
+      {
+        "type": "paragraph",
+        "content": "This is to show an image, video or custom HTML, like Twitter feed"
+      },
+      {
+        "type": "select",
+        "id": "home_welcome_side",
+        "label": "Show on which side",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "home_welcome_side_type",
+        "label": "Use",
+        "options": [
+          {
+            "value": "img",
+            "label": "Image"
+          },
+          {
+            "value": "html",
+            "label": "Custom HTML"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "home_welcome_image.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "textarea",
+        "id": "home_welcome_side_html",
+        "label": "[Custom HTML](http:\/\/cleanthemes.co.uk\/symmetry\/twitter-on-homepage) (e.g. embed code for video \/ Twitter)"
+      },
+      {
+        "type": "header",
+        "content": "C: Full width advert image"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_ad_1_show",
+        "label": "Show"
+      },
+      {
+        "type": "image",
+        "id": "home_ad_1.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "home_ad_1_bg_col",
+        "label": "Background colour"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_ad_1_bg_trans",
+        "label": "or Transparent:"
+      },
+      {
+        "type": "color",
+        "id": "home_ad_1_text_col",
+        "label": "Text colour"
+      },
+      {
+        "type": "text",
+        "id": "home_ad_1_text",
+        "label": "Text"
+      },
+      {
+        "type": "select",
+        "id": "home_ad_1_text_pos",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "centre",
+            "label": "Centre"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "home_ad_1_url",
+        "label": "Link URL (eg \/collections\/mens)"
+      },
+      {
+        "type": "header",
+        "content": "D: Blog"
+      },
+      {
+        "type": "blog",
+        "id": "home_blog_hdl",
+        "label": "Blog to show"
+      },
+      {
+        "type": "paragraph",
+        "content": "To show a smaller snippet of content on the homepage, edit your article and click 'Add an excerpt'. Note that this snippet will also show on the main blog listing."
+      },
+      {
+        "type": "header",
+        "content": "E, F, G: [Product rows](http:\/\/cleanthemes.co.uk\/symmetry\/product-rows)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Link to: The title text and 'See all' text will link to the collection chosen here Collection of products to display: Each product in this collection will show on the homepage You can choose the same collection for both settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "One"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_1_show",
+        "label": "Show"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_1_use_slideshow",
+        "label": "Show in a single row"
+      },
+      {
+        "type": "collection",
+        "id": "home_coll_1_coll",
+        "label": "Link to"
+      },
+      {
+        "type": "collection",
+        "id": "home_coll_1_coll_products",
+        "label": "Collection of products to display"
+      },
+      {
+        "type": "paragraph",
+        "content": "Two"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_2_show",
+        "label": "Show"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_2_use_slideshow",
+        "label": "Show in a single row"
+      },
+      {
+        "type": "collection",
+        "id": "home_coll_2_coll",
+        "label": "Link to"
+      },
+      {
+        "type": "collection",
+        "id": "home_coll_2_coll_products",
+        "label": "Collection of products to display"
+      },
+      {
+        "type": "paragraph",
+        "content": "Three"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_3_show",
+        "label": "Show"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_3_use_slideshow",
+        "label": "Show in a single row"
+      },
+      {
+        "type": "collection",
+        "id": "home_coll_3_coll",
+        "label": "Link to"
+      },
+      {
+        "type": "collection",
+        "id": "home_coll_3_coll_products",
+        "label": "Collection of products to display"
+      },
+      {
+        "type": "paragraph",
+        "content": "Row 1 background"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_1_use_col",
+        "label": "Show"
+      },
+      {
+        "type": "color",
+        "id": "home_coll_1_col",
+        "label": "Color"
+      },
+      {
+        "type": "paragraph",
+        "content": "Row 2 background"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_2_use_col",
+        "label": "Show"
+      },
+      {
+        "type": "color",
+        "id": "home_coll_2_col",
+        "label": "Color"
+      },
+      {
+        "type": "paragraph",
+        "content": "Row 3 background"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_3_use_col",
+        "label": "Show"
+      },
+      {
+        "type": "color",
+        "id": "home_coll_3_col",
+        "label": "Color"
+      },
+      {
+        "type": "text",
+        "id": "home_coll_height",
+        "label": "Height of single rows"
+      },
+      {
+        "type": "header",
+        "content": "H: Collection list"
+      },
+      {
+        "type": "paragraph",
+        "content": "Shows a list of collection images"
+      },
+      {
+        "type": "link_list",
+        "id": "home_coll_list_list",
+        "label": "Link list containing the collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_coll_list_bg_use",
+        "label": "Use background color"
+      },
+      {
+        "type": "color",
+        "id": "home_coll_list_bg",
+        "label": "Background color"
+      },
+      {
+        "type": "select",
+        "id": "home_coll_list_overmode",
+        "label": "Overlay position",
+        "options": [
+          {
+            "value": "",
+            "label": "Do not show"
+          },
+          {
+            "value": "t",
+            "label": "Top"
+          },
+          {
+            "value": "m",
+            "label": "Middle"
+          },
+          {
+            "value": "b",
+            "label": "Bottom"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "I: Custom HTML"
+      },
+      {
+        "type": "textarea",
+        "id": "home_custom_html",
+        "label": "Custom HTML"
+      }
+    ]
+  },
+  {
+    "name": "Collections + Products",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Collection page"
+      },
+      {
+        "type": "select",
+        "id": "coll_desc_pos",
+        "label": "Show description",
+        "options": [
+          {
+            "value": "below",
+            "label": "Below heading"
+          },
+          {
+            "value": "above",
+            "label": "Above heading"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_hide_tags",
+        "label": "Hide tag filters"
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_hide_sort",
+        "label": "Hide sorting dropdown"
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_hide_feat",
+        "label": "Hide Featured option:"
+      },
+      {
+        "type": "radio",
+        "id": "coll_hide_soc",
+        "label": "Social sharing button position",
+        "options": [
+          {
+            "value": "",
+            "label": "Hidden"
+          },
+          {
+            "value": "show-exp",
+            "label": "Show in expanding area"
+          },
+          {
+            "value": "show-vis",
+            "label": "Visible"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "coll_in_col",
+        "label": "Disable full-width product display"
+      },
+      {
+        "type": "text",
+        "id": "coll_num_per_page",
+        "label": "Number of products to show per page",
+        "info": "max 50"
+      },
+      {
+        "type": "select",
+        "id": "coll_gridstream_mode",
+        "label": "Grid\/stream view",
+        "options": [
+          {
+            "value": "both-def-grid",
+            "label": "Both enabled - default to grid"
+          },
+          {
+            "value": "both-def-stream",
+            "label": "Both enabled - default to stream"
+          },
+          {
+            "value": "grid-only",
+            "label": "Grid only"
+          },
+          {
+            "value": "stream-only",
+            "label": "Stream only"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Collection page thumbnails"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_thumb_detail_show",
+        "label": "Show quick-buy on click",
+        "info": "Also known as the super-slide-down"
+      },
+      {
+        "type": "text",
+        "id": "prod_thumb_height",
+        "label": "Height",
+        "info": "max 480px"
+      },
+      {
+        "type": "select",
+        "id": "prod_hov_type",
+        "label": "Overlay mode",
+        "options": [
+          {
+            "value": "bottom-permanent",
+            "label": "At bottom, under image, always visible"
+          },
+          {
+            "value": "bottom-inner-hover",
+            "label": "At bottom, over image, show on hover"
+          },
+          {
+            "value": "bottom-inner-perm",
+            "label": "At bottom, over image, always visible"
+          },
+          {
+            "value": "full-hover",
+            "label": "Fully covers image, show on hover"
+          }
+        ],
+        "info": "[More info](http:\/\/cleanthemes.co.uk\/symmetry\/product-thumbnails\/%20)"
+      },
+      {
+        "type": "text",
+        "id": "prod_thumb_title_height",
+        "label": "If under image, always visible, enter the height reserved for this area",
+        "default": "92",
+        "info": "If your titles overlap your image - increase this number"
+      },
+      {
+        "type": "color",
+        "id": "prod_hov_bg",
+        "label": "Overlay background colour"
+      },
+      {
+        "type": "color",
+        "id": "prod_thumb_detail_bg",
+        "label": "Dropdown detail background"
+      },
+      {
+        "type": "color",
+        "id": "prod_thumb_detail_col",
+        "label": "Dropdown detail text colour"
+      },
+      {
+        "type": "color",
+        "id": "prod_thumb_detail_col_a",
+        "label": "Dropdown detail link colour"
+      },
+      {
+        "type": "select",
+        "id": "prod_thumb_detail_close_img",
+        "label": "Dropdown detail close button",
+        "options": [
+          {
+            "value": "dark",
+            "label": "Dark"
+          },
+          {
+            "value": "light",
+            "label": "Light"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Product stickers"
+      },
+      {
+        "type": "select",
+        "id": "prod_block_label_loc",
+        "label": "Overlay sticker location",
+        "options": [
+          {
+            "value": "t",
+            "label": "Top"
+          },
+          {
+            "value": "c",
+            "label": "Centre"
+          },
+          {
+            "value": "b",
+            "label": "Bottom"
+          },
+          {
+            "value": "hide",
+            "label": "Nowhere (hide)"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "coll_col_st_txt",
+        "label": "Sticker text color"
+      },
+      {
+        "type": "color",
+        "id": "coll_col_sale",
+        "label": "Sale sticker color"
+      },
+      {
+        "type": "checkbox",
+        "id": "stick_sale_en",
+        "label": "- show this sticker"
+      },
+      {
+        "type": "color",
+        "id": "coll_col_sold",
+        "label": "Sold out sticker color"
+      },
+      {
+        "type": "color",
+        "id": "coll_col_gen",
+        "label": "Custom sticker color"
+      },
+      {
+        "type": "text",
+        "id": "prod_stock_warn_limit",
+        "label": "Automatic 'Only X left!' warning sticker upper limit",
+        "info": "Leave empty to not show. Will ONLY work for products with only one variant. Uses the 'Sold out' sticker color from above."
+      },
+      {
+        "type": "header",
+        "content": "Product Detail Page"
+      },
+      {
+        "type": "radio",
+        "id": "prod_gall_thumbs_under",
+        "label": "Where to show the thumbnails",
+        "options": [
+          {
+            "value": "beside",
+            "label": "Beside main image"
+          },
+          {
+            "value": "under",
+            "label": "Underneath main image"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_ajax_add",
+        "label": "Enable AJAX add-to-cart also works on collection pages, disable if you are using Line Item Properties"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_single_var_name",
+        "label": "Show variant option and title when there is only one variant"
+      },
+      {
+        "type": "checkbox",
+        "id": "en_linked_opts",
+        "label": "Enable [Linked Options](http:\/\/wiki.shopify.com\/Linked_Options)"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_single_opt",
+        "label": "Show name of option when only one dropdown visible"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_pick_a",
+        "label": "Show 'Pick a' in dropdowns"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_type",
+        "label": "Show 'See more type'"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_tags",
+        "label": "Show tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "prod_show_vendor",
+        "label": "Show Vendor"
+      },
+      {
+        "type": "select",
+        "id": "prod_desc_pos",
+        "label": "Description position",
+        "options": [
+          {
+            "value": "beside",
+            "label": "Beside main image, under price"
+          },
+          {
+            "value": "below",
+            "label": "Underneath image and price"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Related Products [?](http:\/\/cleanthemes.co.uk\/symmetry\/related-products)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Please note that the quick-buy drop down will not show on related products when using 'Tag-specified product handle'"
+      },
+      {
+        "type": "paragraph",
+        "content": "Tag-specified collection example: meta-related-collection-bluedresses Tag-specified product handle example: meta-related-product-bluedress"
+      },
+      {
+        "type": "select",
+        "id": "prod_rel_meth",
+        "label": "Related products method",
+        "options": [
+          {
+            "value": "collection",
+            "label": "Same collection (automatic)"
+          },
+          {
+            "value": "tag-coll",
+            "label": "Tag-specified collection"
+          },
+          {
+            "value": "tag-handle",
+            "label": "Tag-specified product handle"
+          },
+          {
+            "value": "",
+            "label": "None"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "prod_rel_limit",
+        "label": "Related products limit"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Icons linking to your social networking sites"
+      },
+      {
+        "type": "paragraph",
+        "content": "Enter the full URLs of your social sites, including http:\/\/"
+      },
+      {
+        "type": "paragraph",
+        "content": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_facebook_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_facebook_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_twitter_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_twitter_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "RSS"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_rss_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_rss_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Pinterest"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_pinterest_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_pinterest_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Google+"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_google_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_google_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_instagram_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_instagram_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Vimeo"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_vimeo_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_vimeo_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "YouTube"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_youtube_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_youtube_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Flickr"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_flickr_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_flickr_url",
+        "label": "URL"
+      },
+      {
+        "type": "paragraph",
+        "content": "Tumblr"
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_tumblr_en",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "soc_tumblr_url",
+        "label": "URL"
+      },
+      {
+        "type": "select",
+        "id": "soc_icons_loc",
+        "label": "Show icons in:",
+        "options": [
+          {
+            "value": "head",
+            "label": "Header"
+          },
+          {
+            "value": "foot",
+            "label": "Footer"
+          },
+          {
+            "value": "both",
+            "label": "Both"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "social_col",
+        "label": "Icon color",
+        "options": [
+          {
+            "value": "social_spr_darkgrey.png",
+            "label": "Dark grey"
+          },
+          {
+            "value": "social_spr_white.png",
+            "label": "White"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "soc_icons_double",
+        "label": "Big icons"
+      },
+      {
+        "type": "header",
+        "content": "Share buttons"
+      },
+      {
+        "type": "paragraph",
+        "content": "These allow visitors to share the page they are viewing, via their own social networks - select these to have them display in your store"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_show_fb",
+        "label": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_show_tw",
+        "label": "Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_show_go",
+        "label": "Google +"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_show_pi",
+        "label": "Pinterest"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_show_fa",
+        "label": "Fancy"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cart page"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_terms_show",
+        "label": "Enable 'terms & conditions' checkbox in the cart"
+      },
+      {
+        "type": "page",
+        "id": "cart_terms_page",
+        "label": "Cart terms & conditions page to link to, if the above is activated"
+      },
+      {
+        "type": "header",
+        "content": "Checkout page logo"
+      },
+      {
+        "type": "paragraph",
+        "content": "Please note that if you have migrated to the Responsive Checkout, the following settings will be ignored."
+      },
+      {
+        "type": "paragraph",
+        "content": "The pages in the checkout process are styled differently to the rest of your store, and these settings for the logo are to ensure its correct display:"
+      },
+      {
+        "type": "text",
+        "id": "logo_width",
+        "label": "* Logo width"
+      },
+      {
+        "type": "text",
+        "id": "logo_height",
+        "label": "* Logo height"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Colours"
+      },
+      {
+        "type": "color",
+        "id": "foot_bg_col",
+        "label": "Background colour (main)"
+      },
+      {
+        "type": "color",
+        "id": "foot_bg_col_2",
+        "label": "Background colour (ads and nav)"
+      },
+      {
+        "type": "color",
+        "id": "foot_nav_col",
+        "label": "Nav text colour"
+      },
+      {
+        "type": "header",
+        "content": "Adverts"
+      },
+      {
+        "type": "paragraph",
+        "content": "Add advert images here, link them to any pages. Ideal size 380w x 220h (px)"
+      },
+      {
+        "type": "select",
+        "id": "footer_ad_show",
+        "label": "Show footer ads",
+        "options": [
+          {
+            "value": "",
+            "label": "No"
+          },
+          {
+            "value": "home",
+            "label": "Homepage only"
+          },
+          {
+            "value": "all",
+            "label": "All pages"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "ad_1_img.jpg",
+        "label": "Ad 1 - Image"
+      },
+      {
+        "type": "text",
+        "id": "ad_1_src",
+        "label": "Ad 1 - Link"
+      },
+      {
+        "type": "text",
+        "id": "ad_1_title",
+        "label": "Ad 1 - Title + Alt text"
+      },
+      {
+        "type": "image",
+        "id": "ad_2_img.jpg",
+        "label": "Ad 2 - Image"
+      },
+      {
+        "type": "text",
+        "id": "ad_2_src",
+        "label": "Ad 2 - Link"
+      },
+      {
+        "type": "text",
+        "id": "ad_2_title",
+        "label": "Ad 2 - Title + Alt text"
+      },
+      {
+        "type": "image",
+        "id": "ad_3_img.jpg",
+        "label": "Ad 3 - Image"
+      },
+      {
+        "type": "text",
+        "id": "ad_3_src",
+        "label": "Ad 3 - Link"
+      },
+      {
+        "type": "text",
+        "id": "ad_3_title",
+        "label": "Ad 3 - Title + Alt text"
+      },
+      {
+        "type": "header",
+        "content": "Misc Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_small_show_foot",
+        "label": "Show miniature logo"
+      },
+      {
+        "type": "image",
+        "id": "logo_small.png",
+        "label": "Miniature logo image",
+        "max-width": 400,
+        "max-height": 300
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cc_link",
+        "label": "Show 'Theme by...'"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_signup_show",
+        "label": "Show newsletter signup"
+      },
+      {
+        "type": "text",
+        "id": "footer_signup_action",
+        "label": "Mailchimp form action link (begins http:\/\/) [?](http:\/\/cleanthemes.co.uk\/symmetry\/mailchimp) - leave blank to use built-in signup"
+      },
+      {
+        "type": "header",
+        "content": "Payment Icons"
+      },
+      {
+        "type": "select",
+        "id": "pay_icon_img",
+        "label": "Icon colour",
+        "options": [
+          {
+            "value": "payment_spr_white.png",
+            "label": "Light"
+          },
+          {
+            "value": "payment_spr_grey.png",
+            "label": "Dark"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_paypal",
+        "label": "PayPal"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_visa",
+        "label": "Visa"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_mastercard",
+        "label": "Mastercard"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_amex",
+        "label": "American Express"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_discover",
+        "label": "Discover"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_cirrus",
+        "label": "Cirrus"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_maestro",
+        "label": "Maestro"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_google_wallet",
+        "label": "Google Wallet"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_dankort",
+        "label": "Dankort"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_jcb",
+        "label": "JCB"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_diners",
+        "label": "Diners Club"
+      },
+      {
+        "type": "checkbox",
+        "id": "pay_bitcoin",
+        "label": "Bitcoin"
+      }
+    ]
+  },
+  {
+    "name": "[Shopify plugin] Shipping calculator",
+    "settings": [
+      {
+        "type": "select",
+        "id": "shipping_calculator",
+        "label": "Show shipping calculator?",
+        "options": [
+          {
+            "value": "Disabled",
+            "label": "No"
+          },
+          {
+            "value": "Enabled",
+            "label": "Yes"
+          }
+        ],
+        "default": "Enabled"
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_default_country",
+        "label": "Default country selection",
+        "default": "United States"
+      },
+      {
+        "type": "paragraph",
+        "content": "If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the spelling to use here, refer to your first checkout page dropdown."
+      }
+    ]
+  },
+  {
+    "name": "[Shopify plugin] Multi-currency options",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_multiple_currencies",
+        "label": "Show currency selector?"
+      },
+      {
+        "type": "paragraph",
+        "content": "Although you will be able to display prices on your store front in different currencies, Shopify will still process orders in your shop's currency."
+      },
+      {
+        "type": "select",
+        "id": "currency_format",
+        "label": "Money format",
+        "options": [
+          {
+            "value": "money_format",
+            "label": "Without Currency, ex: $10.00"
+          },
+          {
+            "value": "money_with_currency_format",
+            "label": "With Currency, ex: $10 CAD"
+          }
+        ],
+        "default": "money_format"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies",
+        "label": "Currencies you wish to support",
+        "default": "CAD USD"
+      },
+      {
+        "type": "text",
+        "id": "default_currency",
+        "label": "Default currency",
+        "default": "CAD"
+      },
+      {
+        "type": "paragraph",
+        "content": "Separate your currency codes with a space. Use the ISO 4217 3-letter currency code. Click [here](http:\/\/www.xe.com\/iso4217.php) for a complete list of currency codes. Example: CAD USD."
+      },
+      {
+        "type": "paragraph",
+        "content": "* For this functionality to work in your shop, you are required to edit your money formats as per [these instructions](http:\/\/wiki.shopify.com\/Do_Tell_Where_The_Money_Is) (“Do tell where the money is”)."
+      }
+    ]
+  },
+  {
+    "name": "Advanced",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Page layout"
+      },
+      {
+        "type": "select",
+        "id": "adv_page_width",
+        "label": "Maximum width of a page (default 960)",
+        "options": [
+          {
+            "value": "960",
+            "label": "960px"
+          },
+          {
+            "value": "1080",
+            "label": "1080px"
+          },
+          {
+            "value": "1200",
+            "label": "1200px"
+          },
+          {
+            "value": "1400",
+            "label": "1400px"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "adv_blog_width",
+        "label": "Maximum width of the blog articles (default 960)",
+        "options": [
+          {
+            "value": "600",
+            "label": "600px"
+          },
+          {
+            "value": "700",
+            "label": "700px"
+          },
+          {
+            "value": "800",
+            "label": "800px"
+          },
+          {
+            "value": "960",
+            "label": "960px"
+          },
+          {
+            "value": "1080",
+            "label": "1080px"
+          },
+          {
+            "value": "1200",
+            "label": "1200px"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "home_col_full_dis",
+        "label": "Disable full-width homepage (and footer)"
+      },
+      {
+        "type": "header",
+        "content": "Collection page thumbnails"
+      },
+      {
+        "type": "select",
+        "id": "prod_thumb_disp_type",
+        "label": "Image size method",
+        "options": [
+          {
+            "value": "variable",
+            "label": "Variable-width"
+          },
+          {
+            "value": "fixed",
+            "label": "Fixed-width"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "prod_thumb_width",
+        "label": "Width (if in fixed-width mode)"
+      },
+      {
+        "type": "header",
+        "content": "Misc"
+      },
+      {
+        "type": "checkbox",
+        "id": "adv_nav",
+        "label": "Enable advanced nav",
+        "info": "Enables a more complex way of setting up multi-tier menus, not recommended for most people [READ THIS BEFORE ENABLING](http:\/\/cleanthemes.co.uk\/symmetry\/advanced-advanced-nav\/)"
+      },
+      {
+        "type": "select",
+        "id": "letter_sp",
+        "label": "Letter-spacing",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Default"
+          },
+          {
+            "value": "1px",
+            "label": "Increased"
+          },
+          {
+            "value": "-1px",
+            "label": "Decreased"
+          }
+        ],
+        "info": "Alters legibility of various sections of text across the site. For more advanced options, you will likely need to hire a developer"
+      }
+    ]
+  }
+]

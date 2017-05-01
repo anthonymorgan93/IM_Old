@@ -1,0 +1,222 @@
+{% capture slider_html %}
+{% assign home_slide_count_int = settings.home_slide_count | plus: 0 %}
+<!-- Main slideshow -->
+<div class="slideshow">
+  {% if settings.home_col_full_dis %}<div class="container">{% endif %}
+  <div class="flexslider auto-play scaled-text-base">
+    <ul class="slides">
+      {% for i in (1..5) %}
+      {% assign slide_show = 'slide_' | append: i | append: '_show' %}
+      
+      {% if settings[slide_show] %}
+      {% assign slide_img_url = 'slide_' | append: i | append: '.jpg' %}
+      {% assign slide_link_url = 'slide_' | append: i | append: '_url' %}
+      {% assign slide_text_show = 'slide_' | append: i | append: '_txt_show' %}
+      {% assign slide_text = 'slide_' | append: i | append: '_txt' %}
+      {% assign slide_text_pos = 'slide_' | append: i | append: '_txt_pos' %}
+      <li class="slide">
+        {% if settings[slide_link_url] != '' %}<a href="{{ settings[slide_link_url] }}">{% endif %}
+        <img src="{{ slide_img_url | asset_url }}" alt="Slide {{i}}" />
+        {% if settings[slide_text_show] %}
+        <div class="overlay-text overlay-{{ settings[slide_text_pos] }}">
+          <div class="inner">
+            <h1 class="text">
+              <span class="scaled-text">
+                {% if settings[slide_text] == blank %}
+                {{ 'home_page.onboarding.slide_overlay' | t }}
+                {% else %}
+                {{ settings[slide_text] }}
+                {% endif %}
+              </span>
+            </h1>
+          </div>
+        </div>
+        {% endif %}
+        {% if settings[slide_link_url] != '' %}</a>{% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% if settings.home_col_full_dis %}</div>{% endif %}
+</div>
+{% endcapture %}
+
+{% capture welcome_html %}
+{% if settings.home_welcome_page != empty and pages[settings.home_welcome_page] != empty %}
+<!-- Welcome text -->
+<div class="container padded-row {% if settings.home_welcome_image_show %}layout-content-with-image-{{ settings.home_welcome_side }}{% endif %} cf">
+    {% if settings.home_welcome_image_show and settings.home_welcome_side == 'left' %}
+    <div class="image-cont">
+        {% if settings.home_welcome_side_type == 'img' %}
+        <img src="{{ 'home_welcome_image.jpg' | asset_url }}" alt="{{ pages[settings.home_welcome_page].title }}" />
+        {% else %}
+        {{ settings.home_welcome_side_html }}
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <div class="content user-content">
+        {% if settings.home_welcome_title != empty %}
+        <h1 class="majortitle in-content">{{ settings.home_welcome_title }}</h1>
+        {% endif %}
+        {{ pages[settings.home_welcome_page].content }}
+    </div>
+    
+    {% if settings.home_welcome_image_show and settings.home_welcome_side == 'right' %}
+    <div class="image-cont">
+        {% if settings.home_welcome_side_type == 'img' %}
+        <img src="{{ 'home_welcome_image.jpg' | asset_url }}" alt="{{ pages[settings.home_welcome_page].title }}" />
+        {% else %}
+        {{ settings.home_welcome_side_html }}
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+{% endcapture %}
+
+{% capture ad_html %}
+{% if settings.home_ad_1_show %}
+<div class="slide full-width-image">
+  {% if settings.home_col_full_dis %}<div class="container">{% endif %}
+  <div class="scaled-text-base">
+    <a class="img-cont" href="{{ settings.home_ad_1_url }}">
+      <img src="{{ 'home_ad_1.jpg' | asset_url }}" alt="{{ settings.home_ad_1_text | escape }}" />
+      {% assign text_size = settings.home_ad_1_text | size %}
+      {% if text_size != 0 %}
+      <div class="overlay-text overlay-{{ settings.home_ad_1_text_pos }}">
+        <div class="inner">
+          <h1 class="text"><span class="scaled-text">{{ settings.home_ad_1_text }}</span></h1>
+        </div>
+      </div>
+      {% endif %}
+    </a>
+  </div>
+  {% if settings.home_col_full_dis %}</div>{% endif %}
+</div>
+{% endif %}
+{% endcapture %}
+
+{% capture blog_html %}
+{% assign slider_blog = blogs[settings.home_blog_hdl] %}
+{% paginate slider_blog.articles by 3 %}
+    {% if slider_blog.articles.size > 0 %}
+    <!-- Blog slideshow -->
+    <div class="container padded-row">
+        <h1 class="hometitle h4-style align-center"><a href="{{ slider_blog.url }}">{{ slider_blog.title }}</a></h1>
+        <div class="layout cf">
+            {% for article in slider_blog.articles %}
+                <div class="col-third user-content {% cycle 'blog': 'left', '', 'right' %} spaced-row">
+                  <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                    {{ article.excerpt_or_content }}
+                    <p><a class="button" href="{{ article.url }}">{{ 'blogs.article.read_more_html' | t }}</a></p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endpaginate %}
+{% endcapture %}
+
+{% for i in (1..3) %}
+    {% assign product_limit = 20 %}
+    {% capture index_show %}home_coll_{{i}}_show{% endcapture %}
+    {% capture index_collection %}home_coll_{{i}}_coll{% endcapture %}
+    {% capture index_collection_products %}home_coll_{{i}}_coll_products{% endcapture %}
+    {% capture index_collection_use_slideshow %}home_coll_{{i}}_use_slideshow{% endcapture %}
+    
+    {% capture coll_row_html %}
+    {% if settings[index_show] %}
+        {% assign coll_handle = settings[index_collection] %}
+        {% assign product_collection = collections[coll_handle] %}
+        
+        <!-- Collection slider -->
+        <div class="{% if settings[index_collection_use_slideshow] %}collection-slider-row{% else %}padded-row{% endif %} collection-slider-{{i}}">
+            {% if settings.home_col_full_dis %}<div class="container">{% endif %}
+            <div class="{% if settings[index_collection_use_slideshow] %}collection-slider{% endif %}">
+                <h1 class="hometitle h4-style align-center"><a href="{{ product_collection.url }}"><span>{{ product_collection.title }}</span></a></h1>
+                <div class="view-all align-center"><a href="{{ product_collection.url }}">{{ 'home_page.products.see_all' | t }}</a></div>
+                
+                {% assign coll_listed_prods_handle = settings[index_collection_products] %}
+                {% assign home_prod_items_collection = collections[coll_listed_prods_handle] %}
+                <div class="collection-listing">
+                  {% include 'product-list' with home_prod_items_collection %}
+                </div>
+            </div><!-- /.collection_slider -->
+            {% if settings.home_col_full_dis %}</div>{% endif %}
+            {% if settings.prod_thumb_detail_show and settings[index_collection_use_slideshow] %}
+            <div class="collection-listing slider-collection-listing">
+                <div class="product-detail"></div>
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% endcapture %}
+    {% if i == 1 %}
+        {% assign coll_1_html = coll_row_html %}
+    {% elsif i == 2 %}
+        {% assign coll_2_html = coll_row_html %}
+    {% else %}
+        {% assign coll_3_html = coll_row_html %}
+    {% endif %}
+{% endfor %}
+
+{% capture collection_list_html %}
+{% unless linklists[settings.home_coll_list_list] == empty %}
+<div class="collection-slider-row is-showing-collections">
+    {% if settings.home_col_full_dis %}<div class="container">{% endif %}
+    <div class="collection-slider">
+        <h1 class="hometitle h4-style align-center has-paging"><span>{{ 'home_page.collections.title' | t }}</span></h1>
+        <div class="collection-listing">
+            <div class="product-list">
+            {% for link in linklists[settings.home_coll_list_list].links %}
+                {% if link.type == 'collection_link' %}
+                    {% assign collection = link.object %}
+                    {% include 'collection-block' %}
+                {% else %}
+                <!-- Only collection types allowed here -->
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div><!-- /.collection-listing -->
+    {% if settings.home_col_full_dis %}</div>{% endif %}
+</div><!-- /.container -->
+{% endunless %}
+{% endcapture %}
+
+{% comment %}
+Display rows in the selected order.
+
+A: Slider
+B: Welcome text
+C: Ad image
+D: Blog
+E: Product row 1
+F: Product row 2
+G: Product row 3
+H: Collection list
+I: Custom HTML
+{% endcomment %}
+
+{% if settings.home_order == empty %}
+    {% assign split_order = 'A-B-C-D-E-F-G-H-I' | split: '-' %}
+{% else %}
+    {% assign split_order = settings.home_order | split: '-' %}
+{% endif %}
+
+{% for item in split_order %}
+{% if item == 'A' %} <!-- Slot A --> {{ slider_html }}
+{% elsif item == 'B' %} <!-- Slot B --> {{ welcome_html }}
+{% elsif item == 'C' %} <!-- Slot C --> {{ ad_html }}
+{% elsif item == 'D' %} <!-- Slot D --> {{ blog_html }}
+{% elsif item == 'E' %} <!-- Slot E --> {{ coll_1_html }}
+{% elsif item == 'F' %} <!-- Slot F --> {{ coll_2_html }}
+{% elsif item == 'G' %} <!-- Slot G --> {{ coll_3_html }}
+{% elsif item == 'H' %} <!-- Slot H --> {{ collection_list_html }}
+{% elsif item == 'I' %} <!-- Slot I --> {{ settings.home_custom_html }}
+{% endif %}
+{% endfor %}
+
+

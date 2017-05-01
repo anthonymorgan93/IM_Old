@@ -1,0 +1,186 @@
+<div itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="name" content="{{ product.title }}" />
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
+  <meta itemprop="image" content="http:{{ product.featured_image.src | product_img_url: 'grande' | remove: 'http:' | remove: 'https:' }}" />
+  {% for variant in product.variants %}
+  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <meta itemprop="price" content="{{ variant.price | money_without_currency | strip_html }}" />
+    <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+    {% if product.available %}
+    <link itemprop="availability" href="http://schema.org/InStock" />
+    {% else %}
+    <link itemprop="availability" href="http://schema.org/OutOfStock" />
+    {% endif %}  
+  </div>
+  {% endfor %}
+    
+    {% capture tag_html %}
+    {% if settings.prod_show_tags %}
+    {% for tag in product.tags %}
+        {% unless tag contains 'meta-' %}
+  		<li><a href="{% if collection %}{{ collection.url }}{% else %}/collections/all{% endif %}/{{ tag | handle }}">{{ tag }}</a></li>
+        {% endunless %}
+    {% endfor %}
+    {% endif %}
+    {% endcapture %}
+    
+    <div class="container">
+        <div class="page-header cf">
+            <div class="filters">
+              {% if tag_html contains 'a' %}
+              <span class="tags">
+                <a href="#" data-toggle-target=".tags.nav-row">{{ 'products.product.tags' | t }} <span class="state">+</span></a>
+              </span>
+              {% endif %}
+            
+              {% if settings.prod_show_type %}
+              {% assign product_type_handle = product.type | handle %}
+              {% if collections[product_type_handle].handle == product_type_handle %}
+              {% assign type_url = collections[product_type_handle].url %}
+              {% else %}
+              {% assign type_url = product.type | url_for_type %}
+              {% endif %} 
+              <span class="see-more">{{ 'products.product.see_more_of_this_type' | t }} {{ product.type | link_to: type_url }}</span>
+              {% endif %}
+            </div>
+            
+            {% if collection %}
+            <div class="social-area">
+                <span class="nextprev">
+                {% if collection.previous_product %}
+                    <a class="control-prev" href="{{ collection.previous_product }}">{{ 'products.product.previous' | t }}</a>
+                {% endif %}
+                {% if collection.previous_product and collection.next_product %} / {% endif %}
+                {% if collection.next_product %}
+                    <a class="control-next" href="{{ collection.next_product }}">{{ 'products.product.next' | t }}</a>
+                {% endif %}
+                </span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if tag_html contains 'a' %}
+        <div class="tags nav-row spaced-row hidden">
+            <ul>{{ tag_html }}</ul>
+        </div>
+    {% endif %}
+    
+    {% comment %}
+        GALLERY, TITLE, DESCRIPTION IS ALL IN product-detail.liquid
+        It is included here on the product page, and also used in the slide-down feature on the collection page
+    {% endcomment %}
+    <div id="main-product-detail" class="product-detail spaced-row container cf">
+        {% assign product_detail_in_block = false %}
+        {% include 'product-detail' with product %}
+    </div><!-- /.product-detail -->
+    
+    {% assign show_related = false %}
+    {% capture related_markup %}
+    <div id="related-products" class="container cf">
+        <h4 class="align-centre">{{ 'products.product.related_title' | t }}</h4>
+      
+        <div class="collection-listing related-{{ settings.prod_rel_meth }} cf row-spacing">
+            {% if settings.prod_rel_meth == 'collection' %}
+                {% assign product_collection = collection %}
+          		{% unless product_collection %}{% assign need_new_collection = true %}{% else %}{% assign need_new_collection = false %}{% endunless %}
+                {% if need_new_collection or product_collection.handle == 'all' or product_collection.handle contains 'frontpage' %}
+                    {% for coll in product.collections %}
+                        {% unless coll.handle == 'all' or coll.handle contains 'frontpage' %}
+          					{% assign product_collection = coll %}
+                        {% endunless %}
+                    {% endfor %}
+                {% endif %}
+                {% assign product_image_size_norm = true %}
+                {% assign prod_rel_count = 0 %}
+                {% assign prod_rel_limit_int = settings.prod_rel_limit | plus: 0 %}
+                {% assign prod_rel_limit_plus_one = prod_rel_limit_int | plus: 1 %}
+                {% paginate product_collection.products by prod_rel_limit_plus_one %}
+                    {% for relprod in product_collection.products %}
+                        {% if relprod.handle != product.handle and prod_rel_limit_int > prod_rel_count %}
+                            {% assign prod_rel_count = prod_rel_count | plus: 1 %}
+                            {% assign show_related = true %}
+          					{% assign orig_product = product %}
+          					{% assign product = relprod %}
+                            {% include 'product-block' with relprod %}
+		                    {% assign product = orig_product %}
+                        {% endif %}
+                    {% endfor %}
+                {% endpaginate %}
+            {% elsif settings.prod_rel_meth == 'tag-coll' %}
+                {% for tag in product.tags %}
+                    {% if tag contains 'meta-related-collection-' %}
+                        {% assign product_collection_handle = tag | remove: 'meta-related-collection-' %}
+                        {% assign product_collection = collections[product_collection_handle] %}
+                        {% assign product_image_size_norm = true %}
+                        {% assign prod_rel_count = 0 %}
+                        {% assign prod_rel_limit_int = settings.prod_rel_limit | plus: 0 %}
+                        {% assign prod_rel_limit_plus_one = prod_rel_limit_int | plus: 1 %}
+                        {% paginate product_collection.products by prod_rel_limit_plus_one %}
+                            {% for relprod in product_collection.products %}
+                                {% if relprod.handle != product.handle and prod_rel_limit_int > prod_rel_count %}
+                                    {% assign prod_rel_count = prod_rel_count | plus: 1 %}
+                                    {% assign show_related = true %}
+          							{% assign orig_product = product %}
+          							{% assign product = relprod %}
+                                    {% include 'product-block' with relprod %}
+		                    		{% assign product = orig_product %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endpaginate %}
+                    {% endif %}
+                {% endfor %}
+            {% elsif settings.prod_rel_meth == 'tag-handle' %}
+                {% for tag in product.tags %}
+                    {% if tag contains 'meta-related-product-' %}{% assign show_related = true %}{% endif %}
+                {% endfor %}
+                {% assign is_tag_related_product = true %}
+                <script id="product-block-template" type="text/template">
+                    {% include 'product-block' with relprod %}
+                </script>
+                <script>
+                //Load in related products via ajax
+                $(function(){
+                    Shopify.money_format = {{ shop.money_format | json }};
+                    var related_tags = {{ product.tags | json }};
+                    var i;
+                    var tags_count = 0;
+                    for(i=0; i<related_tags.length; i++) {
+                        if(related_tags[i].indexOf('meta-related-product-') >= 0) {
+                          tags_count++;
+                          if(tags_count > {{ settings.prod_rel_limit }}) {
+                            break;
+                          }
+                          var rel_handle = related_tags[i].substring('meta-related-product-'.length);
+                          if(rel_handle != {{ product.handle | json }}) {
+                            $.getJSON('/products/'+rel_handle+'.js', function(data) {
+                                //Add this data to the page
+                                window.productJSON.push(data);
+                                //Build template
+                                var $template = $($('#product-block-template').html());
+                                $template.find('.productlabel, .product-detail').remove();
+                                $template.find('a.more-info').attr({ href: data.url, title: data.title });
+                                $template.find('.image-cont img').attr('src', data.featured_image.replace(/(\.jpg|\.png|\.jpeg|\.gif)/, '_large$1')).attr('alt', data.title);
+                                $template.find('.title').html(data.title);
+                                $template.find('.price').html(Shopify.formatMoney(data.price));
+                                if(data.price < data.compare_at_price_max) {
+                                  var prevHTML = '<div class="reducedfrom"><span class="was">'+{{ 'products.listing.was' | t | json }}+'</span> <span class="amount">AMOUNT</span></div>';
+                                  $template.find('.block-inner .price').before(prevHTML.replace('AMOUNT', Shopify.formatMoney(data.compare_at_price_max)));
+                                }
+                                //Show
+                                $template.appendTo('#related-products .collection-listing').imagesLoaded(function(){
+                                    $template.find('.image-cont').animate({opacity: 1}, 200);
+                                });
+                            });
+                          }
+                        }
+                    }
+                });
+                </script>
+            {% endif %}
+        </div>
+    </div><!-- /#related-products -->
+    {% endcapture %}
+    {% if show_related %}{{ related_markup }}{% endif %}
+</div><!-- /.product-page-layout -->
+{% include 'webyze-swatches' %}

@@ -1,0 +1,26 @@
+<div class="signup-form-cont">
+    <div class="signup-form">
+    {% if settings.footer_signup_action == empty %}
+        {% form 'customer' %}
+            {% if form.posted_successfully? %}
+                <h4>{{ 'layout.signup.post_success' | t }}</h4>
+                <script>window.scroll(0,1000000)</script>
+            {% else %}
+                    <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+                    <label for="mailinglist_email">{{ 'layout.signup.label' | t }}</label>
+                    <input type="email" placeholder="{{ 'layout.signup.email' | t }}" class="required" value="" id="mailinglist_email" name="contact[email]" /><input class="compact" type="submit" value="→" />
+                {% if form.errors %}
+                    {% for field in form.errors %}
+                    <p class="error">{{ field | capitalize }} - {{ form.errors.messages[field] }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        {% endform %}
+    {% else %}
+        <form action="{{ settings.footer_signup_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+            <label for="mce-EMAIL">{{ 'layout.signup.label' | t }}</label>
+            <input type="email" class="required email" placeholder="{{ 'layout.signup.email' | t }}" value="" id="mce-EMAIL" required name="EMAIL" /><input class="compact" type="submit" name="subscribe" value="→" />
+        </form>
+    {% endif %}
+    </div>
+</div>

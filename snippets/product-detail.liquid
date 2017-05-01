@@ -1,0 +1,170 @@
+
+{% comment %} You can change 'large' to 'grande' for larger gallery images {% endcomment %}
+{% assign gallery_main_image_size = 'large' %}
+<div class="gallery layout-column-half-left {% if product-detail.images.size > 1 %}has-thumbnails{% endif %}">
+    <div class="main-image">
+        {% if product_detail_in_block %}
+        <a href="{{ product_url }}">
+            {% if settings.coll_gridstream_mode contains 'grid' %}
+                <img src="{{ 'blank.gif' | asset_url }}" data-src="{{ product-detail.featured_image | product_img_url: gallery_main_image_size }}" alt="{{ product-detail.featured_image.alt | escape }}"/>
+            {% else %}
+                <img src="{{ product-detail.featured_image | product_img_url: gallery_main_image_size }}" alt="{{ product-detail.featured_image.alt | escape }}"/>
+            {% endif %}
+        </a>
+        {% else %}
+      
+        {% assign featured_image = product-detail.selected_or_first_available_variant.featured_image | default: product-detail.featured_image %}
+      
+        <a class="shows-lightbox" href="{{ featured_image | product_img_url: 'master' }}" title="{{ featured_image.alt | escape }}">
+            <img src="{{ featured_image | product_img_url: gallery_main_image_size }}" alt="{{ featured_image.alt | escape }}"/>
+        </a>
+        {% endif %}
+    </div>
+    
+    {% if product-detail.images.size > 1 %}
+    <div class="thumbnails">
+        {% if product_detail_in_block %}{{ 'products.quick_buy.images' | t }}{% endif %}
+        
+        {% for image in product-detail.images %}
+            {% if product_detail_in_block %} / {% endif %}
+            <a {% if forloop.first %} class="active" {% endif %} title="{{ image.alt | escape }}" href="{{ image | product_img_url: gallery_main_image_size }}" data-full-size-url="{{ image | product_img_url: 'master' }}">
+            {% unless product_detail_in_block %}
+                <img src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}"/>
+            {% else %}
+                <span>{{ forloop.index }}</span>
+            {% endunless %}
+      		</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+  <br>
+  <div>
+		{% unless product.tags contains 'womens' or 'hat' or 'hats' or 'beanies' or 'socks' or 'wallets' %}
+			<img src="{{ 'GUYS_SIZE_CHART.png' | asset_url }}">
+    	{% endunless %}
+  		{% if product.title contains 'NCT' and product.title contains 'Jacket'  %}
+      <center><h4>WATCH THE VIDEO TO SEE HOW IT WORKS!</h4>
+  			<iframe src="https://player.vimeo.com/video/213893459" width="300" height="150" frameborder="5" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  		{% endif %}
+  		{% if product.title contains 'NCT' and product.title contains 'Nano'  %}
+        <center><h4>WATCH THE VIDEO TO SEE HOW IT WORKS!</h4>
+  			<iframe src="https://player.vimeo.com/video/213894850" width="300" height="150" frameborder="5" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  		{% endif %}
+    </center>
+  </div>
+</div>
+<div class="detail layout-column-half-right">
+  {% include 'product-label' with product-detail %}
+    
+  {% if product_detail_in_block %}<h2 class="h1-style title">{% else %}<h1 class="title">{% endif %}
+    {% if product_detail_in_block %}
+   	  <a href="{{ product_url }}">{{ product-detail.title }}</a>
+    {% else %}
+   	  {{ product-detail.title }}
+    {% endif %}
+  {% unless product_detail_in_block %}</h1>{% else %}</h2>{% endunless %}
+  
+  {% assign variant = product-detail.selected_or_first_available_variant  %}
+  <h2 class="h1-style price">
+    {% if product-detail.variants.size == 1 and product-detail.compare_at_price_max > product-detail.price_min %}
+    <span class="was-price">{{ variant.compare_at_price | money }}</span>
+    {% endif %}
+    {{ variant.price | money }} 
+  </h2>
+
+  
+  {% if settings.prod_show_vendor %}
+  {% comment %}
+  Do we have a collection that has the same name as our product vendor name?
+  If we do, let's have the vendor link point to it.
+  If not, we will point to the automatic vendor collection.
+  {% endcomment %}
+  {% assign product_vendor_handle = product-detail.vendor | handle %}
+  {% if collections[product_vendor_handle].handle == product_vendor_handle %}
+  {% assign vendor_url = collections[product_vendor_handle].url %}
+  {% else %}
+  {% assign vendor_url = product-detail.vendor | url_for_vendor %}
+  {% endif %}
+  <p>{{ 'products.product.vendor' | t }} {{ product-detail.vendor | link_to: vendor_url }}</p>
+  {% endif %}
+
+
+  <div class="product-form section">
+    {% if product-detail.available %}
+          <div><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span> </div>
+    <form class="form" action="/cart/add" method="post" enctype="multipart/form-data" data-product-id="{{ product-detail.id }}">
+      <div class="input-row">
+        <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+        <input id="quantity" class="select-on-focus" name="quantity" value="1" size="2" />
+      </div>
+      <div class="input-row">
+        {% if product-detail.variants.size > 1 %}
+        {% if product-detail.options.size == 1 and settings.prod_show_single_opt %}
+        <div class="inline-option">
+          <label for="product-select">{{ product-detail.options.first }}</label>
+          {% endif %}
+          
+          <select id="product-select-{{ product-detail.id }}" name="id">
+            {% for variant in product-detail.variants %}
+            <option value="{{ variant.id }}" {% if variant == product-detail.selected_or_first_available_variant %} selected="selected"{% endif %}>{{ variant.title | escape }}</option>
+            {% endfor %}
+          </select>
+          {% if product-detail.options.size == 1 and settings.prod_show_single_opt %}
+        </div>
+        {% endif %}
+        {% else %}
+        <input type="hidden" name="id" value="{{ product-detail.selected_or_first_available_variant.id }}" />
+        {% if settings.prod_show_single_var_name %}
+        <label class="singleopt">
+          {% for option in product-detail.options %}
+          {% assign opt_idx = 'option' | append: forloop.index %}
+          {{ option }}: {{ product-detail.variants.first[opt_idx] }}<br/>
+          {% endfor %}
+        </label>
+        {% endif %}
+        {% endif %}
+      </div>
+      <div class="input-row">
+        <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
+      </div>
+    </form>
+    {% else %}
+    <p><em>{{ 'products.product.product_unavailable' | t }}</em></p>
+    {% endif %}
+  </div>
+  
+  {% if template contains 'product' and product_detail_in_block == false %}
+  	{% if settings.prod_desc_pos == 'beside' %}
+      <div class="description user-content {% if settings.lightbox_imgs %}lightboximages{% endif %}">{{ product-detail.description }}
+  		{% unless product.type contains 'hat' or product.tag contains 'wallet' or product.tag contains 'socks' or product.tag contains 'backpacks'%}
+  			<a href="{{ 'GUYS_SIZE_CHART.png' | asset_url }}" target="_blank"> SIZE CHART </a>
+    	{% endunless %}
+  	  </div>
+  		{% if product.tags contains 'womens'%}
+			<a href="{{ 'GIRLS_SIZE_CHART.png' | asset_url }}" target="_blank"> SIZE CHART </a>
+    	{% endif %}
+  
+  	  {% comment %} Add code to show under the description on the line below this one, if beside the image {% endcomment %}
+  	  <!-- Underneath the description -->
+  <p><b>Questions?</b> Call us: <a href="tel:18447868619">1-844-786-8619 </a></p>
+  <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+    {% endif %}
+    {% include 'social-sharing' %}
+  {% else %}
+  <a class="more" href="{{ product_url }}">{{ 'products.quick_buy.read_more' | t }} &rarr;</a>
+  {% endif %}
+</div>
+
+{% if template contains 'product' and settings.prod_desc_pos == 'below' and product_detail_in_block == false %}
+  <div class="description user-content {% if settings.lightbox_imgs %}lightboximages{% endif %} padded-row">{{ product-detail.description }}</div>
+  
+  {% comment %} Add code to show under the description on the line below this one, if full-width underneath the image {% endcomment %}
+  <!-- Underneath the description -->
+
+{% endif %}
+
+{% unless is_tag_related_product %}
+<script>
+  addProductJSON({{ product-detail | json }});
+</script>
+{% endunless %}

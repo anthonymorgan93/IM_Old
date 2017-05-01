@@ -1,0 +1,1424 @@
+<fieldset>
+  <legend>SYMMETRY Theme Settings</legend>
+  <p class="tc">Thank you for choosing the SYMMETRY theme by CleanThemes.<br />
+    ← Choose a preset style on the left to get started.<br /><br />
+    <strong class="btn large ssb">SUPPORT SITE: <a target="_blank" href="http://www.cleanthemes.co.uk/symmetry/">CLEANTHEMES.CO.UK</a></strong><br /><br />Need help? Contact us: <a href="mailto:shopify@cleanthemes.co.uk"><span class="mail-sent">shopify@cleanthemes.co.uk</span></a><br /><a href="https://twitter.com/clean_themes">Follow us on Twitter! &rarr;</a></p>
+</fieldset>
+<fieldset>
+  <legend>General</legend>
+  <p class="tc ssb label warning ">Please note that all advert, product and slide images are copyright protected and<br />included as example / setup help only; they are not for use in your live store.</p>
+  <h2 class="sb sst">Your Logo</h2><p class="label complete ssb">Suggested logo sizes (dependent on position chosen): <br />Same row: 260px w x 100px h<br />Above: 260 - 400px w x 120px h<br />Below: 260 - 400px w x 120px h<br /></p>
+  <table>
+    <tr>
+      <td><label for="use_logo_img">Use a logo image?</label></td>
+      <td><input type="checkbox" id="use_logo_img" name="use_logo_img" /></td>
+    </tr>
+    <tr>
+      <td><label for="logo_img">Custom logo image</label></td>
+      <td><input type="file" id="logo_img" name="logo.png" data-max-width="1000" data-max-height="600" /></td>
+    </tr>
+    <tr>
+      <td><label for="logo_pos">Logo position</label></td>
+      <td><select id="logo_pos" name="logo_pos">
+        <option value="">Same row as search/cart</option>
+        <option value="above">Above search/cart</option>
+        <option value="below">Below search/cart</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label>Space above logo</label></td>
+      <td><input type="text" name="logo_top_pad" />px</td>
+    </tr>
+    <tr>
+      <td><label>Space below logo</label></td>
+      <td><input type="text" name="logo_bot_pad" />px</td>
+    </tr>
+  </table><hr class="sst" />
+  <h2 class="sb sst">Main Site Background</h2>
+  <table>
+    <tr>
+      <td><label>Background color</label></td>
+      <td><input type="text" class="color" name="bg_col" /></td>
+    </tr>
+    <tr>
+      <td><label for="bg_img_name">Background image</label></td>
+      <td>
+        <select id="bg_img_name" name="bg_img_name">
+          <option value="none">None</option>
+          <option value="bg_stock_1.jpg">Light</option>
+          <option value="bg_stock_2.jpg">Dark</option>
+          <option value="bg_custom.jpg">Custom</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="bg_image">Custom background image</label></td>
+      <td><input type="file" id="bg_image" name="bg_custom.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label for="bg_method">Background image type</label></td>
+      <td>
+        <select id="bg_method" name="bg_method">
+          <option value="repeatxy">Tiled vertically + horizontally</option>
+          <option value="centertop-repeatx">Aligned to top, tiled horizontally</option>
+          <option value="centertop-norepeat">Aligned to top, centred, no tiling</option>
+        </select>
+      </td>
+    </tr>
+  </table><hr class="sst" />
+  <h2 class="sb sst">Miscellaneous</h2>
+  <table>
+    <tr>
+      <td><label>Upload a favicon<br/><small>convert your image to a 16x16 ico file before uploading</small></label></td>
+      <td><input type="file" name="favicon.ico" /></td>
+    </tr>
+    <tr>
+      <td><label>Enable <a href="http://gravatar.com" target="_blank">Gravatars</a> in blog comments</label></td>
+      <td><input type="checkbox" name="show_gravatars" /></td>
+    </tr>
+    <tr>
+      <td><label>Use lightbox for any images in text areas (blogs/pages/product descriptions)</label></td>
+      <td><input type="checkbox" name="lightbox_imgs" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Typography</legend>
+  <p class="label complete ssb">To use custom Google Web Fonts, go to <a href="http://www.google.com/webfonts">google.com/webfonts</a> and pick your font. On the instructions section it will show you the address of the font, e.g 'http://fonts.googleapis.com/css?family=Averia+Libre:700' - just enter the font part (eg: 'Averia+Libre:700') here, select 'Custom' and the template will do the rest.</p>
+  <hr class="sst" />
+  <table>
+    <tr>
+      <td><label for="font_fam_base">Base</label></td>
+      <td>
+        <select id="font_fam_base" name="font_fam_base">
+          <optgroup label="Web Safe">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Google Web Fonts">
+            <option value="GWF|Lato:400,700">Lato</option>
+            <option value="GWF|Lora:400,700">Lora</option>
+            <option value="GWF|Open+Sans:400,700">Open Sans</option>
+            <option value="GWF|CUSTOM">-- Custom --</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Custom:</label></td><td><input type="text" name="font_fam_base_cust" />
+      </td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <table>
+    <tr>
+      <td><label for="font_fam_headings">Headings</label></td>
+      <td>
+        <select id="font_fam_headings" name="font_fam_headings">
+          <optgroup label="Web Safe">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Google Web Fonts">
+            <option value="GWF|Amatic+SC:400,700">Amatic SC</option>
+            <option value="GWF|Lato:400,700">Lato</option>
+            <option value="GWF|Lora:400,700">Lora</option>
+            <option value="GWF|Quantico">Quantico</option>
+            <option value="GWF|CUSTOM">-- Custom --</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Custom:</label></td><td><input type="text" name="font_fam_headings_cust" />
+      </td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <table>
+    <tr>
+      <td><label for="font_fam_shoptitle">Store name (if used instead of logo image)</label></td>
+      <td>
+        <select id="font_fam_shoptitle" name="font_fam_shoptitle">
+          <optgroup label="Web Safe">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Google Web Fonts">
+            <option value="GWF|Lato">Lato</option>
+            <option value="GWF|Lora">Lora</option>
+            <option value="GWF|CUSTOM">-- Custom --</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Custom:</label></td><td><input type="text" name="font_fam_shoptitle_cust" />
+      </td>
+    </tr>
+    <tr>
+      <td><label>Size</label></td>
+      <td><input type="text" name="font_size_shoptitle" /> px</td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <table>
+    <tr>
+      <td><label for="font_fam_nav">Menu</label></td>
+      <td>
+        <select id="font_fam_nav" name="font_fam_nav">
+          <optgroup label="Web Safe">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Google Web Fonts">
+            <option value="GWF|Lato">Lato</option>
+            <option value="GWF|Lora">Lora</option>
+            <option value="GWF|Quantico">Quantico</option>
+            <option value="GWF|CUSTOM">-- Custom --</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Custom:</label></td><td><input type="text" name="font_fam_nav_cust" />
+      </td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <table>
+    <tr>
+      <td><label for="font_fam_special">Buttons, labels, tags, header</label></td>
+      <td>
+        <select id="font_fam_special" name="font_fam_special">
+          <optgroup label="Web Safe">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Google Web Fonts">
+            <option value="GWF|Lato:400,700">Lato</option>
+            <option value="GWF|Lora:400,700">Lora</option>
+            <option value="GWF|CUSTOM">-- Custom --</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Custom:</label></td><td><input type="text" name="font_fam_special_cust" />
+      </td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Global text sizes</h2>
+  <table>
+    <tr>
+      <td><label>Smallest text size (paragraphs)</label></td>
+      <td><input type="text" name="font_size_base" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Largest text size (main titles)</label></td>
+      <td><input type="text" name="font_size_headings" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Force uppercase text?</label></td>
+      <td><input type="checkbox" name="font_headnav_uc" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Specific text override sizes</h2>
+  <table>
+    <tr>
+      <td><label>Header + footer text</label></td>
+      <td><input type="text" name="font_size_special_head" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Main menu text</label></td>
+      <td><input type="text" name="font_size_nav" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Under-menu message text</label></td>
+      <td><input type="text" name="font_size_msgs" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Button text</label></td>
+      <td><input type="text" name="font_size_special_but" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Tags/View As/misc text</label></td>
+      <td><input type="text" name="font_size_special_tags" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Home slider overlay text</label></td>
+      <td><input type="text" name="home_slider_text_size" /> px</td>
+    </tr>
+    <tr>
+      <td><label>Home advert overlay text</label></td>
+      <td><input type="text" name="home_ad_text_size" /> px</td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Text colors</h2>
+  <table>
+    <tr>
+      <td><label>Base</label></td>
+      <td><input type="text" class="color" name="font_col_base" /></td>
+    </tr>
+    <tr>
+      <td><label>Links</label></td>
+      <td><input type="text" class="color" name="font_col_link" /></td>
+    </tr>
+    <tr>
+      <td><label>Links - hover</label></td>
+      <td><input type="text" class="color" name="font_col_link_hover" /></td>
+    </tr>
+    <tr>
+      <td><label>Headings - main</label></td>
+      <td><input type="text" class="color" name="font_col_heads" /></td>
+    </tr>
+    <tr>
+      <td><label>Shop name / logo</label></td>
+      <td><input type="text" class="color" name="font_col_shoptitle" /></td>
+    </tr>
+    <tr>
+      <td><label>Form inputs</label></td>
+      <td><input type="text" class="color" name="font_col_input" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Global Colors + Styles</legend>
+  <h2 class="sb sst">Button colors</h2>
+  <table>
+    <tr>
+      <td><label>Button</label></td>
+      <td><input type="text" class="color" name="btn_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Button hover</label></td>
+      <td><input type="text" class="color" name="btn_col_alt" /></td>
+    </tr>
+    <tr>
+      <td><label>Button text</label></td>
+      <td><input type="text" class="color" name="btn_col_txt" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Icon colors</h2>
+  <table>
+    <tr>
+      <td><label for="rss_col">RSS icon (blog/article page)</label></td>
+      <td>
+        <select name="rss_col">
+          <option value="rss_black.png">Black</option>
+          <option value="rss_white.png">White</option>
+          <option value="rss_colour.png">Color</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="meta_col">Meta icons (blog page)</label></td>
+      <td>
+        <select name="meta_col">
+          <option value="meta_icons_grey.png">Grey</option>
+          <option value="meta_icons_white.png">White</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Lines / misc colors</h2>
+  <table>
+    <tr>
+      <td><label>Dividing lines / horizontal rules</label></td>
+      <td><input type="text" class="color" name="col_dividers" /></td>
+    </tr>
+    <tr>
+      <td><label>Table lines</label></td>
+      <td><input type="text" class="color" name="font_col_div" /></td>
+    </tr>
+    <tr>
+      <td><label>Form input background</label></td>
+      <td><input type="text" class="color" name="font_col_input_bg" /></td>
+    </tr>
+    <tr>
+      <td><label>Form input border</label></td>
+      <td><input type="text" class="color" name="font_col_input_bord" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Header Panel</legend>
+  <h2 class="sb sst">Header colors</h2>
+  <table>
+    <tr>
+      <td><label>Background</label></td>
+      <td><input type="text" class="color" name="head_bg_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Text</label></td>
+      <td><input type="text" class="color" name="head_txt_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu - dividing lines</label></td>
+      <td><input type="text" class="color" name="head_nav_div_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu - text</label></td>
+      <td><input type="text" class="color" name="font_col_nav" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu - text hover</label></td>
+      <td><input type="text" class="color" name="font_col_nav_hov" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu - account links</label></td>
+      <td><input type="text" class="color" name="font_col_nav_acct" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu background (1st level)</label></td>
+      <td><input type="text" class="color" name="panel_nav_bg" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu background (2nd level)</label></td>
+      <td><input type="text" class="color" name="panel_nav_bg_2" /></td>
+    </tr>
+    <tr>
+      <td><label>Menu background (3rd level)</label></td>
+      <td><input type="text" class="color" name="panel_nav_bg_3" /></td>
+    </tr>
+    <tr>
+      <td><label>Added-to-cart notification background</label></td>
+      <td><input type="text" class="color" name="not_shade_bg" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Misc</h2>
+  <table>
+    <tr>
+      <td><label>Show cart link as button</label></td>
+      <td><input type="checkbox" name="use_btn_style_cart_link" /></td>
+    </tr>
+    <tr>
+      <td><label for="header_signup_show">Show newsletter signup in header</label></td>
+      <td><input type="checkbox" id="header_signup_show" name="header_signup_show" /></td>
+    </tr>
+    <tr>
+      <td><label>Show 'Register' link in main menu (requires customer accounts to be enabled in Settings > Checkout)</label></td>
+      <td><input type="checkbox" name="nav_show_reg" /></td>
+    </tr>
+    <tr>
+      <td><label>Automatically expand navigation to current page</label></td>
+      <td><input type="checkbox" name="nav_autoexpand" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Store messages</legend>
+  <p class="label complete ssb">These are displayed under the main menu - great for promotions + notices</p>
+  <table>
+    <tr>
+      <td><label>Number to show</label></td>
+      <td><select name="head_not_count">
+        <option value="">None</option>
+        <option value="1">1</option>
+        <option value="12">2</option>
+        <option value="123">3</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="head_not_home_only">Homepage only</label></td>
+      <td><input type="checkbox" id="head_not_home_only" name="head_not_home_only" /></td>
+    </tr>
+    <tr>
+      <td><label for="head_not_mob_hide">Hide on mobile</label></td>
+      <td><input type="checkbox" id="head_not_mob_hide" name="head_not_mob_hide" /></td>
+    </tr>
+  </table>
+  
+  <h3>Colours</h3>
+  <table>
+    <tr>
+      <td><label for="head_not_col_bg">Background</label></td>
+      <td>
+        <input type="text" class="color" id="head_not_col_bg" name="head_not_col_bg" value="#ffffff" />
+        <br/>
+        <label>Transparent: <input type="checkbox" id="head_not_col_bg_trans" name="head_not_col_bg_trans" /></label>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="head_not_col_txt1">Text line 1</label></td>
+      <td><input type="text" class="color" id="head_not_col_txt1" name="head_not_col_txt1" value="#3d4c4f" /></td>
+    </tr>
+    <tr>
+      <td><label for="head_not_col_txt2">Text line 2</label></td>
+      <td><input type="text" class="color" id="head_not_col_txt2" name="head_not_col_txt2" value="#8a8f93" /></td>
+    </tr>
+  </table>
+
+  <h3 class="sb sst">Message 1</h3>
+  <table>
+    <tr>
+      <td><label>Line 1</label></td>
+      <td><input type="text" name="head_not_1_1" /></td>
+    </tr>
+    <tr>
+      <td><label>Line 2</label></td>
+      <td><input type="text" name="head_not_1_2" /></td>
+    </tr>
+    <tr>
+      <td><label>Link URL</label></td>
+      <td><input type="text" name="head_not_1_url" /></td>
+    </tr>
+  </table>
+  <h3 class="sb sst">Message 2</h3>
+  <table>
+    <tr>
+      <td><label>Line 1</label></td>
+      <td><input type="text" name="head_not_2_1" /></td>
+    </tr>
+    <tr>
+      <td><label>Line 2</label></td>
+      <td><input type="text" name="head_not_2_2" /></td>
+    </tr>
+    <tr>
+      <td><label>Link URL</label></td>
+      <td><input type="text" name="head_not_2_url" /></td>
+    </tr>
+  </table>
+  <h3 class="sb sst">Message 3</h3>
+  <table>
+    <tr>
+      <td><label>Line 1</label></td>
+      <td><input type="text" name="head_not_3_1" /></td>
+    </tr>
+    <tr>
+      <td><label>Line 2</label></td>
+      <td><input type="text" name="head_not_3_2" /></td>
+    </tr>
+    <tr>
+      <td><label>Link URL</label></td>
+      <td><input type="text" name="head_not_3_url" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Homepage Slideshow</legend>
+  <h2 class="sb sst">Setup</h2>
+  <table>
+    <tr>
+      <td><label>Background color</label></td>
+      <td><input type="text" class="color" name="slide_bg_col" /><br/><i>or</i> Transparent: <input type="checkbox" name="slide_bg_trans" /></td>
+    </tr>
+    <tr>
+      <td><label>Overlay text color</label></td>
+      <td><input type="text" class="color" name="slide_txt_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Show overlay background</label></td>
+      <td><input type="checkbox" name="slide_txt_bg_show" /></td>
+    </tr>
+    <tr>
+      <td><label>Overlay background color</label></td>
+      <td><input type="text" class="color" name="slide_txt_bg_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Overlay background transparency (decimal between 0 - 1, 0.5 being 50%)</label></td>
+      <td><input type="text" name="slide_txt_bg_op" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Slides</h2>
+  <p class="label complete ssb">Use <em>&lt;br /&gt;</em> for a new line in any text<br />Ideal size for full width slides: 1600 x 500, 1200 wide for fixed width sites</p>
+  <h3 class="sb sst">Slide 1</h3>
+  <table>
+    <tr><td>Active</td>
+      <td><input type="checkbox" name="slide_1_show" /></td></tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="slide_1.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label>Url</label></td>
+      <td><input type="text" name="slide_1_url" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Show overlay text</label></td>
+      <td><input type="checkbox" name="slide_1_txt_show"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay text</label></td>
+      <td><input type="text" name="slide_1_txt" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay position</label></td>
+      <td><select name="slide_1_txt_pos">
+        <option value="left">Left</option>
+        <option value="centre">Centre</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h3 class="sb sst">Slide 2</h3>
+  <table>
+    <tr><td>Active</td>
+      <td><input type="checkbox" name="slide_2_show" /></td></tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="slide_2.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label>Url</label></td>
+      <td><input type="text" name="slide_2_url" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Show overlay text</label></td>
+      <td><input type="checkbox" name="slide_2_txt_show"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay text</label></td>
+      <td><input type="text" name="slide_2_txt" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay position</label></td>
+      <td><select name="slide_2_txt_pos">
+        <option value="left">Left</option>
+        <option value="centre">Centre</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h3 class="sb sst">Slide 3</h3>
+  <table>
+    <tr><td>Active</td>
+      <td><input type="checkbox" name="slide_3_show" /></td></tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="slide_3.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label>Url</label></td>
+      <td><input type="text" name="slide_3_url" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Show overlay text</label></td>
+      <td><input type="checkbox" name="slide_3_txt_show"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay text</label></td>
+      <td><input type="text" name="slide_3_txt" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay position</label></td>
+      <td><select name="slide_3_txt_pos">
+        <option value="left">Left</option>
+        <option value="centre">Centre</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h3 class="sb sst">Slide 4</h3>
+  <table>
+    <tr><td>Active</td>
+      <td><input type="checkbox" name="slide_4_show" /></td></tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="slide_4.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label>Url</label></td>
+      <td><input type="text" name="slide_4_url" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Show overlay text</label></td>
+      <td><input type="checkbox" name="slide_4_txt_show"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay text</label></td>
+      <td><input type="text" name="slide_4_txt" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay position</label></td>
+      <td><select name="slide_4_txt_pos">
+        <option value="left">Left</option>
+        <option value="centre">Centre</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h3 class="sb sst">Slide 5</h3>
+  <table>
+    <tr><td>Active</td>
+      <td><input type="checkbox" name="slide_5_show" /></td></tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="slide_5.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label>Url</label></td>
+      <td><input type="text" name="slide_5_url" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Show overlay text</label></td>
+      <td><input type="checkbox" name="slide_5_txt_show"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay text</label></td>
+      <td><input type="text" name="slide_5_txt" class="long"/></td>
+    </tr>
+    <tr>
+      <td><label>Overlay position</label></td>
+      <td><select name="slide_5_txt_pos">
+        <option value="left">Left</option>
+        <option value="centre">Centre</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Homepage Setup</legend>
+
+  <h2 class="sb sst">Row ordering</h2>
+  <table><tr><td>
+    <p class="label complete ssb">Enter the letter of each row in the order you want them to show, separated with a hyphen. <br /><br />E.g. <strong>D-C-A-B-E</strong>
+      <br /><br />Leave blank for default order</p>
+    </td><td><ul class="indent">
+    <li>A: Slider</li>
+    <li>B: Text row</li>
+    <li>C: Ad image</li>
+    <li>D: Blog</li>
+    <li>E: Product row 1</li>
+    <li>F: Product row 2</li>
+    <li>G: Product row 3</li>
+    <li>H: Collection list</li>
+    <li>I: Custom HTML</li>
+    </ul></td></tr>
+  </table>
+  <table>
+    <tr>
+      <td><label>Order of rows</label></td>
+      <td><input name="home_order" value="A-B-C-D-E-F-G-H-I" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">B: Text row</h2>
+  <table>
+    <tr>
+      <td><label>Title</label></td>
+      <td><input name="home_welcome_title" /></td>
+    </tr>
+    <tr>
+      <td><label>Page to pull text from</label></td>
+      <td><select name="home_welcome_page" class="page" /></td>
+    </tr>
+    <tr>
+      <td><label><a href="http://cleanthemes.co.uk/symmetry/text-row-homepage">Show companion content</a></label></td>
+      <td><input type="checkbox" name="home_welcome_image_show" /></td>
+    </tr>
+  </table>
+  <p>This is to show an image, video or custom HTML, like Twitter feed</p>
+  <table>
+    <tr>
+      <td><label>Show on which side</label></td>
+      <td><select name="home_welcome_side">
+        <option value="left">Left</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label>Use</label></td>
+      <td><select name="home_welcome_side_type">
+        <option value="img">Image</option>
+        <option value="html">Custom HTML</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="home_welcome_image.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label><a href="http://cleanthemes.co.uk/symmetry/twitter-on-homepage">Custom HTML</a><br />(e.g. embed code for video / Twitter)</label></td>
+      <td><textarea name="home_welcome_side_html" /></td>
+    </tr>
+  </table>
+
+  <hr class="sst" />
+  <h2 class="sb sst">C: Full width advert image</h2>
+  <table>
+    <tr>
+      <td><label>Show</label></td>
+      <td><input type="checkbox" name="home_ad_1_show" /></td>
+    </tr>
+    <tr>
+      <td><label>Image</label></td>
+      <td><input type="file" name="home_ad_1.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label>Background colour</label></td>
+      <td><input type="text" class="color" name="home_ad_1_bg_col" /><br/><i>or</i> Transparent: <input type="checkbox" name="home_ad_1_bg_trans" /></td>
+    </tr>
+    <tr>
+      <td><label>Text colour</label></td>
+      <td><input type="text" class="color" name="home_ad_1_text_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Text</label></td>
+      <td><input type="text" name="home_ad_1_text" /></td>
+    </tr>
+    <tr>
+      <td><label>Text position</label></td>
+      <td><select name="home_ad_1_text_pos">
+        <option value="left">Left</option>
+        <option value="centre">Centre</option>
+        <option value="right">Right</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label>Link URL (eg /collections/mens)</label></td>
+      <td><input type="text" name="home_ad_1_url" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">D: Blog</h2>
+    <table>
+      <tr>
+        <td><label>Blog to show</label></td>
+        <td><select name="home_blog_hdl" class="blog" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>To show a smaller snippet of content on the homepage, edit your article and click 'Add an excerpt'. Note that this snippet will also show on the main blog listing.</small></td>
+      </tr>
+    </table>
+  <hr class="sst" />
+  <h2 class="sb sst">E, F, G: <a href="http://cleanthemes.co.uk/symmetry/product-rows">Product rows</a></h2>
+  <p class="label complete ssb">
+    <i>Link to:</i> The title text and 'See all' text will link to the collection chosen here<br />
+    <i>Collection of products to display:</i> Each product in this collection will show on the homepage<br />
+    You can choose the same collection for both settings</p>
+  <table>
+    <tr>
+      <td>Show</td>
+      <td>Show in a single row</td>
+      <td>Link to</td>
+      <td>Collection of products to display</td>
+    </tr>
+    <tr>
+      <td>One <input type="checkbox" name="home_coll_1_show" /></td>
+      <td><input type="checkbox" name="home_coll_1_use_slideshow" /></td>
+      <td><select name="home_coll_1_coll" class="collection" /></td>
+      <td><select name="home_coll_1_coll_products" class="collection" /></td>
+    </tr>
+    <tr>
+      <td>Two <input type="checkbox" name="home_coll_2_show" /></td>
+      <td><input type="checkbox" name="home_coll_2_use_slideshow" /></td>
+      <td><select name="home_coll_2_coll" class="collection" /></td>
+      <td><select name="home_coll_2_coll_products" class="collection" /></td>
+    </tr>
+    <tr>
+      <td>Three <input type="checkbox" name="home_coll_3_show" /></td>
+      <td><input type="checkbox" name="home_coll_3_use_slideshow" /></td>
+      <td><select name="home_coll_3_coll" class="collection" /></td>
+      <td><select name="home_coll_3_coll_products" class="collection" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>Row 1 background color</td>
+      <td>Show <input type="checkbox" name="home_coll_1_use_col" /></td>
+      <td><input class="color" name="home_coll_1_col" /></td>
+    </tr>
+    <tr>
+      <td>Row 2 background color</td>
+      <td>Show <input type="checkbox" name="home_coll_2_use_col" /></td>
+      <td><input class="color" name="home_coll_2_col" /></td>
+    </tr>
+    <tr>
+      <td>Row 3 background color</td>
+      <td>Show <input type="checkbox" name="home_coll_3_use_col" /></td>
+      <td><input class="color" name="home_coll_3_col" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td><label for="home_coll_height">Height of single rows</label></td>
+      <td><input type="text" id="home_coll_height" name="home_coll_height" />px</td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">H: Collection list</h2>
+  <p>Shows a list of collection images</p>
+  <table>
+    <tr>
+      <td><label>Link list containing the collections</label></td>
+      <td><select name="home_coll_list_list" class="linklist" /></td>
+    </tr>
+    <tr>
+      <td><label>Use background color</label></td>
+      <td><input name="home_coll_list_bg_use" type="checkbox" /></td>
+    </tr>
+    <tr>
+      <td><label>Background color</label></td>
+      <td><input name="home_coll_list_bg" class="color" /></td>
+    </tr>
+    <tr>
+      <td><label>Overlay position</label></td>
+      <td><select name="home_coll_list_overmode">
+        <option value="">Do not show</option>
+        <option value="t">Top</option>
+        <option value="m">Middle</option>
+        <option value="b">Bottom</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">I: Custom HTML</h2>
+  <table>
+    <tr>
+      <td><label>Custom HTML</label></td>
+      <td><textarea name="home_custom_html"></textarea></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Collections + Products</legend>
+  <h2 class="sb sst">Collection page</h2>
+  <table>
+    <tr>
+      <td><label>Show description</label></td>
+      <td><select name="coll_desc_pos">
+        <option value="below">Below heading</option>
+        <option value="above">Above heading</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label>Hide tag filters</label></td>
+      <td><input type="checkbox" name="coll_hide_tags" /></td>
+    </tr>
+    <tr>
+      <td><label>Hide sorting dropdown</label></td>
+      <td><input type="checkbox" name="coll_hide_sort" value="1" />&nbsp;&nbsp;&nbsp;&nbsp;Hide <i>Featured</i> option: <input type="checkbox" name="coll_hide_feat" value="1" /></td>
+    </tr>
+    <tr>
+      <td><label>Social sharing button position</label></td>
+      <td>
+        <label><input type="radio" name="coll_hide_soc" value=""/> Hidden</label>
+        <label><input type="radio" name="coll_hide_soc" value="show-exp"/> Show in expanding area</label>
+        <label><input type="radio" name="coll_hide_soc" value="show-vis"/> Visible</label>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Disable full-width product display</label></td>
+      <td><input type="checkbox" name="coll_in_col" /></td>
+    </tr>
+    <tr>
+      <td><label>Number of products to show per page<br/><small>max 50</small></label></td>
+      <td><input type="text" name="coll_num_per_page" /></td>
+    </tr>
+    <tr>
+      <td><label>Grid/stream view</label></td>
+      <td><select name="coll_gridstream_mode">
+        <option value="both-def-grid">Both enabled - default to grid</option>
+        <option value="both-def-stream">Both enabled - default to stream</option>
+        <option value="grid-only">Grid only</option>
+        <option value="stream-only">Stream only</option>
+        </select></td>
+    </tr>
+  </table>
+  <h3>Collection page thumbnails</h3>
+  <table>
+    <tr>
+      <td><label for="prod_thumb_detail_show">Show quick-buy on click<br/><small>Also known as the super-slide-down</small></label></td>
+      <td><input type="checkbox" id="prod_thumb_detail_show" name="prod_thumb_detail_show" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_height">Height<br /><small>max 480px</small></label></td>
+      <td><input type="text" id="prod_thumb_height" name="prod_thumb_height" /> px</td>
+    </tr>
+    <tr>
+      <td><label for="prod_hov_type">Overlay mode</label> <a target="_blank" href="http://cleanthemes.co.uk/symmetry/product-thumbnails/ ">More info</a></td>
+      <td><select name="prod_hov_type">
+        <option value="bottom-permanent">At bottom, under image, always visible</option>
+        <option value="bottom-inner-hover">At bottom, over image, show on hover</option>
+        <option value="bottom-inner-perm">At bottom, over image, always visible</option>
+        <option value="full-hover">Fully covers image, show on hover</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_title_height">If under image, always visible, enter the height reserved for this area<br/>
+        <small>If your titles overlap your image - increase this number</small></label></td>
+      <td><input type="text" id="prod_thumb_title_height" name="prod_thumb_title_height" value="92" /> px</td>
+    </tr>
+    <tr>
+      <td><label for="prod_hov_bg">Overlay background colour</label></td>
+      <td><input class="color" id="prod_hov_bg" name="prod_hov_bg" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_detail_bg">Dropdown detail background</label></td>
+      <td><input class="color" id="prod_thumb_detail_bg" name="prod_thumb_detail_bg" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_detail_col">Dropdown detail text colour</label></td>
+      <td><input class="color" id="prod_thumb_detail_col" name="prod_thumb_detail_col" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_detail_col_a">Dropdown detail link colour</label></td>
+      <td><input class="color" id="prod_thumb_detail_col_a" name="prod_thumb_detail_col_a" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_detail_close_img">Dropdown detail close button</label></td>
+      <td><select id="prod_thumb_detail_close_img" name="prod_thumb_detail_close_img">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Product stickers</h2>
+  <table>
+    <tr>
+      <td><label for="prod_block_label_loc">Overlay sticker location</label></td>
+      <td>
+        <select name="prod_block_label_loc">
+          <option value="t">Top</option>
+          <option value="c">Centre</option>
+          <option value="b">Bottom</option>
+          <option value="hide">Nowhere (hide)</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Sticker text color</label></td>
+      <td><input type="text" class="color" name="coll_col_st_txt" /></td>
+    </tr>
+    <tr>
+      <td><label>Sale sticker color</label></td>
+      <td><input type="text" class="color" name="coll_col_sale" /> - show this sticker <input type="checkbox" name="stick_sale_en" /></td>
+    </tr>
+    <tr>
+      <td><label>Sold out sticker color</label></td>
+      <td><input type="text" class="color" name="coll_col_sold" /></td>
+    </tr>
+    <tr>
+      <td><label>Custom sticker color</label></td>
+      <td><input type="text" class="color" name="coll_col_gen" /></td>
+    </tr>
+    <tr>
+      <td><label>Automatic 'Only X left!' warning sticker upper limit<br /><small>Leave empty to not show. Will <strong>ONLY</strong> work for products with only one variant. Uses the 'Sold out' sticker color from above.</small></label></td>
+      <td><input type="text" name="prod_stock_warn_limit" class="digit-2" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Product Detail Page</h2>
+  <table>
+    <tr>
+      <td><label>Where to show the thumbnails</label></td>
+      <td>
+        <label><input type="radio" name="prod_gall_thumbs_under" value="beside"/> Beside main image</label>
+        <label><input type="radio" name="prod_gall_thumbs_under" value="under"/> Underneath main image</label>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="enable_ajax_add">Enable AJAX add-to-cart <i>also works on collection pages, disable if you are using Line Item Properties</i></label></td>
+      <td><input type="checkbox" id="enable_ajax_add" name="enable_ajax_add" /></td>
+    </tr>
+    <tr>
+      <td><label>Show variant option and title when there is only one variant</label></td>
+      <td><input type="checkbox" name="prod_show_single_var_name" /></td>
+    </tr>
+    <tr>
+      <td><label>Enable <a target="_blank" href="http://wiki.shopify.com/Linked_Options">Linked Options</a></label></td>
+      <td><input type="checkbox" name="en_linked_opts" /></td>
+    </tr>
+    <tr>
+      <td><label>Show name of option when only one dropdown visible</label></td>
+      <td><input type="checkbox" name="prod_show_single_opt" /></td>
+    </tr>
+    <tr>
+      <td><label>Show 'Pick a' in dropdowns</label></td>
+      <td><input type="checkbox" name="prod_show_pick_a" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_show_type">Show 'See more <i>type</i>'</label></td>
+      <td><input type="checkbox" id="prod_show_type" name="prod_show_type" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_show_tags">Show tags</label></td>
+      <td><input type="checkbox" id="prod_show_tags" name="prod_show_tags" /></td>
+    </tr>
+    <tr>
+      <td><label for="prod_show_vendor">Show Vendor</label></td>
+      <td><input type="checkbox" id="prod_show_vendor" name="prod_show_vendor" /></td>
+    </tr>
+    <tr>
+      <td><label>Description position</label></td>
+      <td><select name="prod_desc_pos">
+        <option value="beside">Beside main image, under price</option>
+        <option value="below">Underneath image and price</option>
+        </select></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Related Products <a href="http://cleanthemes.co.uk/symmetry/related-products">?</a></h2>
+  <p class="label warning ssb">Please note that the quick-buy drop down will not show on related products when using <i>'Tag-specified product handle'</i></p>
+  <p class="label complete ssb">Tag-specified collection example:<br /><i>meta-related-collection-bluedresses</i><br />Tag-specified product handle example:<br /><i>meta-related-product-bluedress</i><br /></p>
+  <table>
+    <tr>
+      <td><label for="prod_rel_meth">Related products method</label></td>
+      <td><select name="prod_rel_meth">
+        <option value="collection">Same collection (automatic)</option>
+        <option value="tag-coll">Tag-specified collection</option>
+        <option value="tag-handle">Tag-specified product handle</option>
+        <option value="">None</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label>Related products limit</label></td>
+      <td><input type="text" name="prod_rel_limit" class="digit-2" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Social</legend>
+  <h2 class="sb sst">Icons linking to your social networking sites</h2>
+  <p class="label complete ssb">Enter the full URLs of your social sites, including http://</p>
+  <table>
+    <tr>
+      <td></td><td>Enable</td><td>URL</td>
+    </tr>
+    <tr><td>Facebook</td><td><input name="soc_facebook_en" type="checkbox" /></td><td><input name="soc_facebook_url" type="text" class="long" /></td></tr>
+    <tr><td>Twitter</td><td><input name="soc_twitter_en" type="checkbox" /></td><td><input name="soc_twitter_url" type="text" class="long" /></td></tr>
+    <tr><td>RSS</td><td><input name="soc_rss_en" type="checkbox" /></td><td><input name="soc_rss_url" type="text" class="long" /></td></tr>
+    <tr><td>Pinterest</td><td><input name="soc_pinterest_en" type="checkbox" /></td><td><input name="soc_pinterest_url" type="text" class="long" /></td></tr>
+    <tr><td>Google+</td><td><input name="soc_google_en" type="checkbox" /></td><td><input name="soc_google_url" type="text" class="long" /></td></tr>
+    <tr><td>Instagram</td><td><input name="soc_instagram_en" type="checkbox" /></td><td><input name="soc_instagram_url" type="text" class="long" /></td></tr>
+    <tr><td>Vimeo</td><td><input name="soc_vimeo_en" type="checkbox" /></td><td><input name="soc_vimeo_url" type="text" class="long" /></td></tr>
+    <tr><td>YouTube</td><td><input name="soc_youtube_en" type="checkbox" /></td><td><input name="soc_youtube_url" type="text" class="long" /></td></tr>
+    <tr><td>Flickr</td><td><input name="soc_flickr_en" type="checkbox" /></td><td><input name="soc_flickr_url" type="text" class="long" /></td></tr>
+    <tr><td>Tumblr</td><td><input name="soc_tumblr_en" type="checkbox" /></td><td><input name="soc_tumblr_url" type="text" class="long" /></td></tr>
+  </table>
+  <hr class="sst" />
+  <table>
+    <tr>
+      <td><label for="soc_icons_loc">Show icons in:</label></td>
+      <td><select name="soc_icons_loc" id="soc_icons_loc">
+        <option value="head">Header</option>
+        <option value="foot">Footer</option>
+        <option value="both">Both</option>
+        </select></td>
+      <td><label for="social_col">Icon color</label></td>
+      <td>
+        <select name="social_col">
+          <option value="social_spr_darkgrey.png">Dark grey</option>
+          <option value="social_spr_white.png">White</option>
+        </select>
+      </td>
+      <td><label for="soc_icons_double">Big icons</label></td>
+      <td><input name="soc_icons_double" id="soc_icons_double" type="checkbox" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Share buttons</h2>
+  <p class="label complete ssb">These allow visitors to share the page they are viewing, via their own social networks - select these to have them display in your store</p>
+  <table><tr><td width="20%"><input type="checkbox" id="social_show_fb" name="social_show_fb" /><label for="social_show_fb">Facebook</label></td><td width="20%"><input type="checkbox" id="social_show_tw" name="social_show_tw" /><label for="social_show_tw">Twitter</label></td><td width="20%"><input type="checkbox" id="social_show_go" name="social_show_go" /><label for="social_show_go">Google +</label></td><td width="20%"><input type="checkbox" id="social_show_pi" name="social_show_pi" /><label for="social_show_pi">Pinterest</label></td><td width="20%"><input type="checkbox" id="social_show_fa" name="social_show_fa" /><label for="social_show_fa">Fancy</label></td></tr></table>
+</fieldset>
+
+<fieldset>
+  <legend>Cart</legend>
+  <h2 class="sb sst">Cart page</h2>
+  <table>
+    <tr>
+      <td><label>Enable 'terms &amp; conditions' checkbox in the cart</label></td>
+      <td><input type="checkbox" name="cart_terms_show" /></td>
+    </tr>
+    <tr>
+      <td><label>Cart terms &amp; conditions page to link to, if the above is activated</label></td>
+      <td><select name="cart_terms_page" class="page" /></td>
+    </tr>
+  </table>
+  <h2 class="sb sst">Checkout page logo</h2>
+  <p><b>Please note that if you have migrated to the Responsive Checkout, the following settings will be ignored.</b></p>
+  <p class="label complete ssb">The pages in the checkout process are styled differently to the rest of your store, and these settings for the logo are to ensure its correct display:</p>
+  <table>
+    <tr>
+      <td><label>* Logo width</label></td>
+      <td><input type="text" name="logo_width" /> px</td>
+    </tr>
+    <tr>
+      <td><label>* Logo height</label></td>
+      <td><input type="text" name="logo_height" /> px</td>
+    </tr>
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend>Footer</legend>
+  <h2 class="sb sst">Colours</h2>
+  <table>
+    <tr>
+      <td><label for="foot_bg_col">Background colour (main)</label></td>
+      <td><input class="color" id="foot_bg_col" name="foot_bg_col" /></td>
+    </tr>
+    <tr>
+      <td><label for="foot_bg_col_2">Background colour (ads and nav)</label></td>
+      <td><input class="color" id="foot_bg_col_2" name="foot_bg_col_2" /></td>
+    </tr>
+    <tr>
+      <td><label for="foot_nav_col">Nav text colour</label></td>
+      <td><input class="color" id="foot_nav_col" name="foot_nav_col" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Adverts</h2>
+  <p class="label complete ssb">Add advert images here, link them to any pages. Ideal size 380w x 220h (px)</p>
+  <table>
+    <tr>
+      <td><label for="foot_ad_show">Show footer ads</label></td>
+      <td><select name="footer_ad_show"> <option value="">No</option> <option value="home">Homepage only</option> <option value="all">All pages</option> </select></td>
+    </tr>
+    <tr>
+      <td><label for="ad_1_img">Ad 1 - Image</label></td>
+      <td><input type="file" id="ad_1_img" name="ad_1_img.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_1_src">Ad 1 - Link</label></td>
+      <td><input type="text" id="ad_1_src" name="ad_1_src" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_1_title">Ad 1 - Title + Alt text</label></td>
+      <td><input type="text" id="ad_1_title" name="ad_1_title" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_2_img">Ad 2 - Image</label></td>
+      <td><input type="file" id="ad_2_img" name="ad_2_img.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_2_src">Ad 2 - Link</label></td>
+      <td><input type="text" id="ad_2_src" name="ad_2_src" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_2_title">Ad 2 - Title + Alt text</label></td>
+      <td><input type="text" id="ad_2_title" name="ad_2_title" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_3_img">Ad 3 - Image</label></td>
+      <td><input type="file" id="ad_3_img" name="ad_3_img.jpg" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_3_src">Ad 3 - Link</label></td>
+      <td><input type="text" id="ad_3_src" name="ad_3_src" /></td>
+    </tr>
+    <tr>
+      <td><label for="ad_3_title">Ad 3 - Title + Alt text</label></td>
+      <td><input type="text" id="ad_3_title" name="ad_3_title" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Misc Options</h2>
+  <table>  
+    <tr>
+      <td><label>Show miniature logo</label></td>
+      <td><input type="checkbox" name="logo_small_show_foot" /></td>
+    </tr>
+    <tr>
+      <td><label for="logo_img_small">Miniature logo image</label></td>
+      <td><input type="file" id="logo_img_small" name="logo_small.png" data-max-width="400" data-max-height="300" /></td>
+    </tr>
+    <tr>
+      <td><label>Show 'Theme by...'</label></td>
+      <td><input name="show_cc_link" type="checkbox" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td><label>Show newsletter signup</label></td>
+      <td><input name="footer_signup_show" type="checkbox" /></td>
+    </tr>
+    <tr>
+      <td><label>Mailchimp form <i>action</i> link (begins http://)  <a href="http://cleanthemes.co.uk/symmetry/mailchimp">?</a> - leave blank to use built-in signup</label></td>
+      <td><input name="footer_signup_action" type="text" /></td>
+    </tr>
+  </table>
+  <hr class="sst" />
+  <h2 class="sb sst">Payment Icons</h2>
+  <table>
+    <tr>
+      <td><label>Icon colour</label></td>
+      <td colspan="3">
+        <select name="pay_icon_img">
+          <option value="payment_spr_white.png">Light</option>
+          <option value="payment_spr_grey.png">Dark</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="pay_paypal">PayPal</label></td>
+      <td><input type="checkbox" id="pay_paypal" name="pay_paypal" /></td>
+      <td><label for="pay_visa">Visa</label></td>
+      <td><input type="checkbox" id="pay_visa" name="pay_visa" /></td>
+    </tr>
+    <tr>
+      <td><label for="pay_mastercard">Mastercard</label></td>
+      <td><input type="checkbox" id="pay_mastercard" name="pay_mastercard" /></td>
+      <td><label for="pay_amex">American Express</label></td>
+      <td><input type="checkbox" id="pay_amex" name="pay_amex" /></td>
+    </tr>
+    <tr>
+      <td><label for="pay_discover">Discover</label></td>
+      <td><input type="checkbox" id="pay_discover" name="pay_discover" /></td>
+      <td><label for="pay_cirrus">Cirrus</label></td>
+      <td><input type="checkbox" id="pay_cirrus" name="pay_cirrus" /></td>
+    </tr>
+    <tr>
+      <td><label for="pay_maestro">Maestro</label></td>
+      <td><input type="checkbox" id="pay_maestro" name="pay_maestro" /></td>
+      <td><label for="pay_google_wallet">Google Wallet</label></td>
+      <td><input type="checkbox" id="pay_google_wallet" name="pay_google_wallet" /></td>
+    </tr>
+    <tr>
+      <td><label for="pay_dankort">Dankort</label></td>
+      <td><input type="checkbox" id="pay_dankort" name="pay_dankort" /></td>
+      <td><label for="pay_jcb">JCB</label></td>
+      <td><input type="checkbox" id="pay_jcb" name="pay_jcb" /></td>
+    </tr>
+    <tr>
+      <td><label for="pay_diners">Diners Club</label></td>
+      <td><input type="checkbox" id="pay_diners" name="pay_diners" /></td>
+      <td><label for="pay_bitcoin">Bitcoin</label></td>
+      <td><input type="checkbox" id="pay_bitcoin" name="pay_bitcoin" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>[Shopify plugin] Shipping calculator</legend>
+  <table>
+    <tr>
+      <td><label for="shipping_calculator">Show shipping calculator?</label></td>
+      <td>
+        <select id="shipping_calculator" name="shipping_calculator">
+          <option value="Disabled">No</option>
+          <option value="Enabled" selected="selected">Yes</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="shipping_calculator_default_country">Default country selection</label></td>
+      <td>
+        <input type="text" name="shipping_calculator_default_country" id="shipping_calculator_default_country" size="30" value="United States" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><p class="label complete ssb">If your customer is logged-in, the country in his default shipping address will be selected. If you are not sure about the spelling to use here, refer to your first checkout page dropdown.</p></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>[Shopify plugin] Multi-currency options</legend>
+  <table>
+    <tr>
+      <td><label for="show_multiple_currencies">Show currency selector?</label></td>
+      <td><input type="checkbox" id="show_multiple_currencies" name="show_multiple_currencies" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><small>Although you will be able to display prices on your store front in different currencies, Shopify will still process orders in your shop's currency.</small></td>
+    </tr>
+    <tr>
+      <td><label for="currency_format">Money format</label></td>
+      <td>
+        <select name="currency_format" id="currency_format">
+          <option value="money_format" selected="selected">
+            Without Currency, ex: $10.00
+          </option>
+          <option value="money_with_currency_format">
+            With Currency, ex: $10 CAD
+          </option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="supported_currencies">Currencies you wish to support</label></td>
+      <td><input type="text" class="text long" name="supported_currencies" id="supported_currencies" value="CAD USD" /></td>
+    </tr>
+    <tr>
+      <td><label for="default_currency">Default currency</label></td>
+      <td><input type="text" class="text" name="default_currency" id="default_currency" value="CAD" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><small>Separate your currency codes with a space. Use the ISO 4217 3-letter currency code. Click <a target="_blank" href="http://www.xe.com/iso4217.php">here</a> for a complete list of currency codes. Example: <i>CAD USD</i>.</small></td>
+    </tr>
+    <tr>
+      <td colspan="2"><small>* For this functionality to work in your shop, you are required to edit your money formats as per <a href="http://wiki.shopify.com/Do_Tell_Where_The_Money_Is" target="_blank">these instructions</a> (“Do tell where the money is”).</small></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Advanced</legend>
+  <h2 class="sb sst">Page layout</h2>
+  <table>
+    <tr>
+      <td><label for="adv_page_width">Maximum width of a page (default 960)</label></td>
+      <td><select id="adv_page_width" name="adv_page_width">
+        <option value="960">960px</option>
+        <option value="1080">1080px</option>
+        <option value="1200">1200px</option>
+        <option value="1400">1400px</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="adv_blog_width">Maximum width of the blog articles (default 960)</label></td>
+      <td><select id="adv_blog_width" name="adv_blog_width">
+        <option value="600">600px</option>
+        <option value="700">700px</option>
+        <option value="800">800px</option>
+        <option value="960">960px</option>
+        <option value="1080">1080px</option>
+        <option value="1200">1200px</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home_col_full_dis">Disable full-width homepage (and footer)</label></td>
+      <td><input type="checkbox" id="home_col_full_dis" name="home_col_full_dis" /></td>
+    </tr>
+
+  </table><hr class="sst" />
+  <h2 class="sb sst">Collection page thumbnails</h2>
+  <table>
+    <tr>
+      <td><label for="prod_thumb_disp_type">Image size method</label></td>
+      <td><select name="prod_thumb_disp_type">
+        <option value="variable">Variable-width</option>
+        <option value="fixed">Fixed-width</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="prod_thumb_width">Width (if in fixed-width mode)</label></td>
+      <td><input type="text" id="prod_thumb_width" name="prod_thumb_width" /> px</td>
+    </tr>
+  </table><hr class="sst" />
+  <h2 class="sb sst">Misc</h2>
+  <table>
+    <tr>
+      <td><label for="adv_nav">Enable advanced nav</label></td>
+      <td><input type="checkbox" id="adv_nav" name="adv_nav" /></td>
+      <td>Enables a more complex way of setting up multi-tier menus, not recommended for most people<br/><a href="http://cleanthemes.co.uk/symmetry/advanced-advanced-nav/" target="_blank">READ THIS BEFORE ENABLING</a></td>
+    </tr>
+    <tr>
+      <td><label for="letter_sp">Letter-spacing<br />
+        <small>Alters legibility of various sections of text across the site</small></label></td>
+      <td><select id="letter_sp" name="letter_sp">
+        <option value="normal">Default</option>
+        <option value="1px">Increased</option>
+        <option value="-1px">Decreased</option>
+        </select></td>
+      <td>For more advanced options, you will likely need to hire a developer</td>
+    </tr>
+  </table>
+</fieldset>

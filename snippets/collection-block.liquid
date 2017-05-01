@@ -1,0 +1,27 @@
+<div class="product-block collection-block">
+    <div class="block-inner">
+        <div class="image-cont">
+            <a class="more-info" href="{{ collection.url }}">
+                {% if collection.image %}
+                    {{ collection.image.src | collection_img_url: 'large' | img_tag: collection.image.alt | link_to: collection.url, collection.title }}
+                {% else %}
+                    {% paginate collection.all_products by 1 %}
+                    {{ collection.all_products.first.featured_image | product_img_url: 'large' | img_tag: collection.all_products.first.featured_image.alt | link_to: collection.url, collection.title }}
+                    {% endpaginate %}
+                {% endif %}
+            </a>
+            {% unless settings.home_coll_list_overmode == empty %}
+            <a class="more-info" href="{{ collection.url }}">
+                <span class="productlabel general">
+                    <span>
+                      <span clas="title">{{ collection.title }}</span>
+                      {% if collection.all_products_count > 0 %}
+                        <span class="count">{{ 'collections.general.product_count' | t: count: collection.all_products_count }}</span>
+                      {% endif %}
+                    </span>
+                </span>
+            </a>
+            {% endunless %}
+        </div><!-- /.image-cont -->
+    </div><!-- /.block-inner -->
+</div><!-- /.product-block -->

@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="page-header cf">
+        <h2 class="h1-style majortitle">{{ blog.title | escape | link_to: blog.url }}</h2>
+        
+        {% assign show_tags = false %}
+        {% for tag in blog.all_tags %}
+        {% unless tag contains 'meta-' %}{% assign show_tags = true %}{% endunless %}
+        {% endfor %}
+        
+        <div class="filters">
+            {% if show_tags %}
+            <a href="#" data-toggle-target=".tags.nav-row">{{ 'blogs.filtering.filter' | t }} <span class="state">+</span></a>
+            {% endif %}
+        </div><!-- /.filters -->
+        
+        <div class="social-area">
+            {% include 'social-sharing' %}
+            <a class="rsslink" href="{{ blog.url }}.atom" title="{{ blog.title | escape }} RSS"><img src="{{ settings.rss_col | asset_url }}" alt="{{ blog.title | escape }} RSS"/></a>
+        </div>
+    </div>
+</div><!-- /.pagetitle -->
+
+{% if show_tags %}
+<div class="tags nav-row spaced-row {% unless current_tags.size > 0 %}hidden{% endunless %}">
+    <ul>
+        {% for tag in blog.all_tags %}
+        {% unless tag contains 'meta-' %}
+            {% if current_tags contains tag %}
+                <li class="active">{{ tag | link_to_remove_tag: tag }}</li>
+            {% else %}
+                <li>{{ tag | link_to_tag: tag }}</li>
+            {% endif %}
+        {% endunless %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% include 'article' %}
+
+<div class="container pagination-row">
+    {% if blog.previous_article %}
+    {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
+    {% endif %}
+    {% if blog.previous_article and blog.next_article %} / {% endif %}
+    {% if blog.next_article %}
+    {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }}
+    {% endif %}
+</div>
+
+{% if blog.comments_enabled? %}
+    {% paginate article.comments by 50 %}
+        {% if article.comments != blank %}
+        <div id="comments" class="container cf padded-row">
+            <h4 class="align-centre">{{ 'blogs.comments.title' | t }}</h4>
+            
+            {% comment %} Loop through approved comments: {% endcomment %}        
+            {% for comment in article.comments reversed %}
+                <div class="comment spaced-row {% if forloop.first %}first{% endif %}">
+                    {% if settings.show_gravatars %}
+                        <div class="gravatar">
+                            <img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" alt="{{ comment.author }}" />
+                        </div>
+                    {% endif %}
+                    <div class="detail">
+                        <p class="author">{{ 'blogs.comments.author_meta' | t: author: comment.author }}</p>
+                        <div class="text">{{ comment.content }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+          
+            {% comment %} Show a comment that was *just* submitted {% endcomment %}
+            {% if comment and comment.created_at %}
+                <div class="comment spaced-row">
+                    {% if settings.show_gravatars %}
+                        <div class="gravatar">
+                            <img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" alt="{{ comment.author }}" />
+                        </div>
+                    {% endif %}
+                    <div class="detail">
+                        <p class="author">{{ 'blogs.comments.author_meta' | t: author: comment.author }}</p>
+                        <div class="text">{{ comment.content }}</div>
+                    </div>
+                </div>
+            {% endif %}
+        </div> <!-- /#comments -->
+        
+        <div class="container pagination-row">{% include 'pagination-control' %}</div>
+        {% endif %}
+    {% endpaginate %}
+    
+    <div id="template" class="container cf form">
+        {% form article %}
+        <h4 id="add-comment-title">{{ 'blogs.comments.form_title' | t }}</h4>
+        
+        {% if form.posted_successfully? %}
+        <p>{{ 'blogs.comments.success' | t }}</p>
+        {% endif %}
+        
+        {% if blog.moderated? %}
+        <p>{{ 'blogs.comments.moderated' | t }}</p>
+        {% endif %}
+        
+        {% if form.errors %}
+            <ul class="error">
+            {% for field in form.errors %}
+                <li>{{ field | capitalize }} {{ form.errors.messages[field] }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    
+        <div class="large_form{% if form.errors contains 'author' %} has-error{% endif %}">
+            <label for="comment_author">{{ 'blogs.comments.name' | t }}</label>
+            <input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" />
+        </div>
+        <div class="large_form{% if form.errors contains 'email' %} has-error{% endif %}">
+            <label for="comment_email">{{ 'blogs.comments.email' | t }}</label>
+            <input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" />
+        </div>
+        <div class="large_form{% if form.errors contains 'body' %} has-error{% endif %}">
+            <label for="comment_body">{{ 'blogs.comments.message' | t }}</label>
+            <textarea id="comment_body" name="comment[body]" cols="40" rows="5">{{form.body}}</textarea>
+        </div>
+        
+        <div class="action_bottom">
+            <input type="submit" value="{{ 'blogs.comments.post' | t }}" id="comment-submit" class="btn" />
+        </div>
+      
+        {% if form.errors %}
+        <script>
+          window.location.hash = '#add-comment-title';
+        </script>
+        {% endif %}
+      
+        {% if form.posted_successfully? %}
+        <script>
+          window.location.hash = '#comments';
+        </script>
+        {% endif %}
+      
+        {% endform %}
+    </div> <!-- /.form -->
+{% endif %}
+

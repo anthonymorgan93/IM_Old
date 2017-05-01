@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--[if lte IE 7 ]>   <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>   <html class="no-js ie8"> <![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Symmetry 1.8.2 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"9Pklj1aAkN00U1", domain:"imperialmotion.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=9Pklj1aAkN00U1" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->  
+<!-- Facebook Pixel Code 
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1346980638681853'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1346980638681853&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+<!-- Mailchimp Goal Code -->
+<script type="text/javascript">
+	var $mcGoal = {'settings':{'uuid':'af50074b154ee644b4ee6e636','dc':'us5'}};
+	(function() {
+		 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+		sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+	})(); 
+</script>
+<!-- End Mailchimp Goal Code -->
+  
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}" />
+  {% endif %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  
+  
+  {% comment %} upload your own favicon.ico file to the Assets section {% endcomment %}
+  <link rel="shortcut icon" href="{{ 'Favicon.png' | asset_url }}" type="image/png" />
+  
+  {% include 'opengraph-tags' %}
+  
+  {% comment %} Google Fonts {% endcomment %}
+  {% for i in (1..5) %}
+    {% capture font_setting_index %}{% cycle 'font_group': 'font_fam_base', 'font_fam_headings', 'font_fam_shoptitle', 'font_fam_nav', 'font_fam_special' %}{% endcapture %}
+    {% capture font_setting_cust_index %}{{ font_setting_index }}_cust{% endcapture %}
+    {% assign font_family_split = settings[font_setting_index] | split: '|' %}
+    {% assign curr_font_family = settings[font_setting_index] %}
+    {% if settings[font_setting_index] == 'GWF|CUSTOM' %}
+    <link href="//fonts.googleapis.com/css?family={{ settings[font_setting_cust_index] | replace: ' ', '+' }}" rel="stylesheet" type="text/css">
+    {% elsif font_family_split.first == 'GWF' %}
+    <link href="//fonts.googleapis.com/css?family={{ font_family_split.last | replace: ' ', '+' }}" rel="stylesheet" type="text/css">
+    {% endif %}
+  {% endfor %}
+  
+  {{ 'jquery.fancybox-1.3.4.css' | asset_url | stylesheet_tag }}
+  {{ 'styles.css' | asset_url | stylesheet_tag }}
+  
+  {% if template contains 'customers' %}
+    {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+    {{ "customer_area.js"  | shopify_asset_url | script_tag }}
+  {% endif %}
+  
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js' | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+  {{ 'jquery.imagesloaded.js' | asset_url | script_tag }}
+  {{ 'jquery.flexslider-min.js' | asset_url | script_tag }}
+  {{ 'jquery.fancybox-1.3.4.pack.js' | asset_url | script_tag }}
+<script>
+  Shopify.money_format = {{ shop.money_format | json }};
+</script>
+    {{ 'main.js' | asset_url | script_tag }}
+
+{% comment %} THESE STYLES NEED TO BE IN A TEMPLATE {% endcomment %}
+<style type="text/css">
+  {% if settings.slide_txt_bg_show %}
+  {% assign hex2rgb_hex = settings.slide_txt_bg_col %}{% include 'hex2rgb' %}
+  .slideshow .slide .overlay-text .text span {
+    background: rgba({{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }}, {{ settings.slide_txt_bg_op }});
+  }
+  {% endif %}
+  
+  {% if settings.slide_txt_bg_show %}
+  {% assign hex2rgb_hex = settings.slide_txt_bg_col %}{% include 'hex2rgb' %}
+  .slide.full-width-image .overlay-text .text span {
+    background: rgba({{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }}, {{ settings.slide_txt_bg_op }});
+  }
+  {% endif %}
+</style>
+  {% comment %} CUSTOM GOOGLE FONTS {% endcomment %}
+ <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
+
+  {{ content_for_header }}
+</head>
+    <div id="content">
+        {% unless settings.head_not_count == empty %}
+        {% if settings.head_not_home_only == false or template == 'index' %}
+        <div id="store-messages" class="messages-{{ settings.head_not_count.last }}">
+            <div class="container cf">
+            {% for i in (1..3) %}
+                {% capture iterstr %}{{ i }}{% endcapture %}
+                {% if settings.head_not_count contains iterstr %}
+                    {% assign line_1_idx = 'head_not_' | append: i | append: '_1' %}
+                    {% assign line_2_idx = 'head_not_' | append: i | append: '_2' %}
+                    {% assign msg_url_idx = 'head_not_' | append: i | append: '_url' %}
+                    {% assign msg_url = settings[msg_url_idx] %}
+                    <div class="message message-{{i}}">
+                      {% unless msg_url == empty %}<a href="{{ msg_url }}">{% endunless %}
+                      {% if settings[line_1_idx] == blank %}
+                        <h6 class="title">{{ 'layout.store_messages.default_title' | t }}</h6>
+                        <span class="tagline">{{ 'layout.store_messages.default_subtext' | t }}</span>
+                      {% else %}
+                        <h6 class="title">{{ settings[line_1_idx] }}</h6>
+                        <span class="tagline">{{ settings[line_2_idx] }}</span>
+                      {% endif %}
+                      {% unless msg_url == empty %}</a>{% endunless %}
+                      {% unless forloop.first %}<div class="fluff"></div>{% endunless %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div><!-- /#store-messages -->
+        {% endif %}
+        {% endunless %}
+        
+
+<body class="template-{{ template | split: '.' | first }}">
+  <div id="pageheader">
+    <div id="mobile-header" class="cf">
+      <button class="notabutton mobile-nav-toggle">{{ 'layout.mobile_header.menu' | t }}<span></span><span></span><span></span></button>
+    </div>
+    
+        <div class="logo-area logo-pos-{{ settings.logo_pos }} cf">
+            {% capture logo_html %}
+            <div class="logo container">
+                <a href="https://imperialmotion.com/homepage" title="{{ shop.name }}">
+                     {% if settings.use_logo_img %}
+                  {% if collection.handle == 'visual-noise-acid-tongue' %}
+              <img src="{{ 'IM-DRIP-LOGO-pink.png' | asset_url }}" alt="{{ shop.name }}" />
+              {% else %}
+                    <img class="logoimage" src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" />
+                {% else %}
+                    <span class="logotext">{{ shop.name }}</span>
+                {% endif %}
+                  {% endif %}
+                </a>
+            </div><!-- /#logo -->
+            {% endcapture %}
+            
+            {% unless settings.logo_pos == 'below' %}{{ logo_html }}{% endunless %}
+            
+            <div class="util-area">
+                <div class="search-box elegant-input">
+                  {% if settings.header_signup_show %}
+                  <div class="signup-reveal-area">
+                    <a class="signup-reveal" href="#">{{ 'layout.header.signup' | t }}</a>
+                    {% if settings.header_signup_show %}{% include 'signup-form' %}{% endif %}
+                  </div>
+                  {% endif %}
+                  
+                  <form class="search-form" action="/search" method="get">
+                    <i></i>
+                    <input type="text" name="q" placeholder="{{ 'layout.header.search' | t }}"/>
+                    <input type="submit" value="&rarr;" />
+                  </form>
+                </div>
+                
+                <div class="utils">
+                    {% if settings.soc_icons_loc == 'head' %}
+                        {% include 'social-icons' %}
+                    {% elsif settings.soc_icons_loc == 'both' %}
+                		{% include 'social-icons' %}
+                    {% endif %}
+                  
+                    <div class="cart-summary">
+                        <a href="/{% if template != 'cart' %}cart{% else %}checkout{% endif %}" class="cart-count {% if settings.use_btn_style_cart_link %}button{% endif %}">
+                          {{ 'layout.header.cart' | t }} ({{ cart.item_count }})
+                        </a>
+                      
+                      {% include 'currencies-switcher' %}
+                    </div>
+                </div><!-- /.utils -->
+            </div><!-- /.util-area -->
+            
+            {% if settings.logo_pos == 'below' %}{{ logo_html }}{% endif %}
+            
+        </div><!-- /.logo-area -->
+    </div><!-- /#pageheader -->
+    
+    {% capture extra_navigation_items %}
+    {% if shop.customer_accounts_enabled %}
+        <ul>
+            <li class="account-links">
+                {% if customer %}
+                    <span class="your-acct"><a href="/account">{{ 'layout.customer.account' | t }}</a></span>
+              		<span class="slash">/</span>
+                    <span class="logout">{{ 'layout.customer.log_out' | t | customer_logout_link }}</span>
+                {% else %}
+                    {% if settings.nav_show_reg %}
+                        <span class="register">{{ 'layout.customer.register' | t | customer_register_link }}</span> <span class="slash">/</span>
+                    {% endif %}
+                    <span class="login">{{ 'layout.customer.log_in' | t | customer_login_link }}</span>
+                {% endif %}
+            </li>
+        </ul>
+    {% endif %}
+    {% endcapture %}
+    
+    <div id="main-nav" class="nav-row">
+      <div class="mobile-features">
+        <form class="mobile-search" action="/search" method="get">
+          <i></i>
+          <input type="text" name="q" placeholder="{{ settings.text_search }}"/>
+          <input class="notabutton" type="submit" value="&rarr;" />
+        </form>
+        <button class="mobile-nav-toggle button compact">X</button>
+      </div>
+      {% include 'main-navigation' with 'main-menu' %}
+    </div><!-- /#main-nav -->
+        
+        {% comment %} Some templates should not be contained in a central column {% endcomment %}
+        {% if template == 'index' or template contains 'collection' or template contains 'product' or template contains 'blog' or template contains 'article' or template contains 'page' or template contains 'search' %}
+          {{ content_for_layout }}
+        {% else %}
+          <div class="container cf">
+            {{ content_for_layout }}
+          </div><!-- /.container -->
+        {% endif %}
+    </div><!-- /#content -->
+    
+  {% include 'footer' %}
+  {% include 'currencies' %}
+  {% comment %} No share buttons on the homepage {% endcomment %}
+  {% unless template == 'index' %}
+    {% if settings.social_show_tw %}<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>{% endif %}
+    {% if settings.social_show_go %}<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>{% endif %}
+    {% if settings.social_show_pi and template == 'product' %}<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>{% endif %}
+    {% if settings.social_show_fa and template == 'product' %}<script src="https://www.thefancy.com/fancyit.js" type="text/javascript"></script>{% endif %}
+    {% if settings.social_show_fb %}
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&status=0";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+    {% endif %}
+  {% endunless %}
+  
+  
+  <!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 964939082;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/964939082/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+  {% comment %}
+  {% include 'modify_lightbox_snippet' %}
+  {% endcomment %}
+        {% unless template == 'page' %}
+    {% include 'optinmonster' %}
+     {% endunless %} 
+{% include 'easyvideo' %}
+</body>
+</html>

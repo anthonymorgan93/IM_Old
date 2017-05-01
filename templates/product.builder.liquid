@@ -1,0 +1,109 @@
+<!-- CSG Start -->
+{{ 'builder.css' | asset_url | stylesheet_tag }}
+{{ 'builder_preloader.js' | asset_url | script_tag }}
+{{ 'builder_swatches.js' | asset_url | script_tag }}
+{{ 'builder_image360.js' | asset_url | script_tag }}
+{{ 'builder_main.js' | asset_url | script_tag }}
+
+<div id="main-product-detail" class="product-detail spaced-row container cf">
+  <div class="gallery layout-column-half-left has-thumbnails">
+    <h1 class="title">{{product.title}}</h1>
+    <h2 class="h1-style price">{{product.price | money}}</h2>
+    <ul class="main-image-nav top">
+      <li><a href="#" class="active" data-swatch-nav="front">Front</a></li>
+      <li><a href="#" data-swatch-nav="back">Back</a></li>
+      <li><a href="#" data-swatch-nav="inside">Inside</a></li>
+      <li><a href="#" data-swatch-nav="360">360</a></li>
+    </ul>
+    <div class="main-image" id="main-image-front">
+      <div class="product-image-layer" id="front-details"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/front-details.png"></div>
+      <div class="product-image-layer" id="front-body"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/front-body_white.png"></div>
+      <div class="product-image-layer" id="front-forearm"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/front-forearm_white.png"></div>
+      <div class="product-image-layer" id="front-sidepanels"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/front-sidepanels_white.png"></div>
+      <div class="product-image-layer" id="front-logos"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/front-logos_black.png"></div>
+      <div class="layer-base"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/layer-shadow.jpg"></div>
+    </div>
+    <div class="main-image" id="main-image-back">
+      <div class="product-image-layer" id="back-details"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/back-details.png"></div>
+      <div class="product-image-layer" id="back-body"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/back-body_white.png"></div>
+      <div class="product-image-layer" id="back-forearm"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/back-forearm_white.png"></div>
+      <div class="product-image-layer" id="back-sidepanels"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/back-sidepanels_white.png"></div>
+      <div class="layer-base"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/layer-shadow.jpg"></div>
+    </div>
+    <div class="main-image" id="main-image-inside">
+      <div class="product-image-layer" id="inside"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/inside.png"></div>
+      <div class="layer-base"><img src="//d1liekpayvooaz.cloudfront.net/csg/imperialmotion/images/layer-shadow.jpg"></div>
+    </div>
+    <div class="main-image" id="main-image-360">
+      <div id="control-360"><p>Drag to Rotate</p></div>
+      <div id="image-360"></div>
+    </div>
+    <ul class="main-image-nav bottom">
+      <li><a href="#" class="active" data-swatch-nav="front">Front</a></li>
+      <li><a href="#" data-swatch-nav="back">Back</a></li>
+      <li><a href="#" data-swatch-nav="inside">Inside</a></li>
+      <li><a href="#" data-swatch-nav="360">360</a></li>
+    </ul>
+          <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> 
+  </div>
+  <div class="detail layout-column-half-right">
+    <h1 class="title">{{product.title}}</h1>
+    <h2 class="h1-style price">{{product.price | money }}</h2>
+    <div class="product-form section">
+      <form class="form" action="/cart/add" method="post" enctype="multipart/form-data" data-product-id="2147420225">
+        <section id="configurator-container" class="ac-container">
+          <div>
+            <input id="ac-1" name="accordion-1" type="radio" checked />
+            <label for="ac-1">Body <span>Neoprene Color</span><strong data-swatch-picker-label="body"></strong></label>
+            <article class="ac-medium" data-swatch-picker="body" data-swatch-picker-default="white"></article>
+          </div>
+          <div>
+            <input id="ac-2" name="accordion-1" type="radio" />
+            <label for="ac-2">Forearm <span>Neoprene Color</span><strong data-swatch-picker-label="forearm"></strong></label>
+            <article class="ac-medium" data-swatch-picker="forearm" data-swatch-picker-default="white"></article>
+
+          </div>
+          <div>
+            <input id="ac-3" name="accordion-1" type="radio" />
+            <label for="ac-3">Side Panels <span>Neoprene Color</span><strong data-swatch-picker-label="sidepanels"></strong></label>
+            <article class="ac-medium" data-swatch-picker="sidepanels" data-swatch-picker-default="white"></article>
+          </div>
+          <div>
+            <input id="ac-4" name="accordion-1" type="radio" />
+            <label for="ac-4">Logos <span>Color</span><strong data-swatch-picker-label="logos"></strong></label>
+            <article class="ac-medium" data-swatch-picker="logos" data-swatch-picker-colors="black,white" data-swatch-picker-default="black"></article>
+          </div>
+        </section>
+
+        <!-- variants-->
+        <div class="input-row">
+          <select id="product-select-{{ product.id }}" name="id" style="display:none">
+           {% for variant in product.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <!-- /variants -->
+
+        <div class="input-row">
+          <label for="quantity">Quantity</label>
+          <input id="quantity" class="select-on-focus" name="quantity" value="1" size="2" min="1"/>
+        </div>
+        <div class="input-row">
+          <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
+        </div>
+      </form>
+    </div>
+
+    <!-- product description -->
+    <div class="description user-content lightboximages">
+      {{product.description}}
+    </div>
+    <!-- /product description -->
+ 
+  </div>
+</div>
+<!-- CSG End -->
+<script>
+  addProductJSON({{ product | json }});
+</script>

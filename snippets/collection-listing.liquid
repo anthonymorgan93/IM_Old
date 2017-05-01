@@ -1,0 +1,67 @@
+{% assign using_link_list = false %}
+
+{% if collection-listing != '' and linklists[collection-listing].handle == collection-listing and linklists[collection-listing].links.size > 0 %}
+  {% assign using_link_list = true %}
+{% endif %}
+
+<div class="container">
+  <div class="page-header cf">
+    <h1 class="majortitle">
+      {% if using_link_list %}{{ linklists[collection-listing].title }}{% else %}{{ 'collections.collection_list.title' | t }}{% endif %}
+    </h1>
+    
+    {% if template == 'collection.list-collections' and collection.description != '' %}
+    <div class="user-content {% if settings.lightbox_imgs %}lightboximages{% endif %}">
+      {{ collection.description }}
+    </div>
+    {% endif %}
+    
+    {% if settings.coll_hide_soc == 'show-vis' %}
+    <div class="social-area">
+      {% include 'social-sharing' %}
+    </div>
+    {% elsif settings.coll_hide_soc == 'show-exp' %}
+    <div class="social-area">
+      <a href="#" class="tags" data-toggle-target=".tags.nav-row.social-row">{{ 'collections.general.share' | t }} <span class="state">+</span></a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% if settings.coll_hide_soc == 'show-exp' %}
+<div class="multi-tag-row">
+  <div class="tags nav-row social-row height-hidden hidden">
+    <div class="container">{% include 'social-sharing' %}</div>
+  </div>
+</div>
+{% endif %}
+
+<div class="container">
+  {% if using_link_list %}
+  
+    <div class="collection-listing">
+      {% for link in linklists[collection-listing].links %}
+        {% if link.type == 'collection_link' %}
+          {% assign collection = link.object %}
+          {% include 'collection-block' %}
+        {% endif %}
+      {% endfor %}
+      {% include 'product-list-placeholders' %}
+  	</div>
+  
+  {% else %}
+  
+  	{% paginate collections by 20 %}
+    <div class="collection-listing">
+    {% for collection in collections %}
+      {% unless collection.handle == 'all' or collection.handle contains 'frontpage' %}
+      	{% include 'collection-block' %}
+      {% endunless %}
+    {% endfor %}
+    {% include 'product-list-placeholders' %}
+  	</div>
+    <div class="pagination-row">{% include 'pagination-control' %}</div>
+    {% endpaginate %}
+  
+  {% endif %}
+</div>
